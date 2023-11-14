@@ -1,5 +1,5 @@
 import "./App.css";
-import Hero from "./components/Hero/Hero";
+// import Hero from "./components/Hero/Hero";
 import Landing from "./components/Landing/Landing";
 import Layout from "./components/layout/Layout";
 
