@@ -1,7 +1,11 @@
 import React from "react";
 
 const TopNavigation = () => {
-  return <div>TopNavigation</div>;
+  return (
+    <>
+      <div></div>
+    </>
+  );
 };
 
 export default TopNavigation;
