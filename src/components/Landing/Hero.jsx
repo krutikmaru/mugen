@@ -9,7 +9,7 @@ const Hero = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5, duration: 0.8 }}
-      className="min-h-[50vh]  space-y-7 flex flex-col justify-center items-center absolute top-32 px-10"
+      className="min-h-[50vh]  space-y-7 flex flex-col justify-center items-center absolute top-32 px-10 text-center"
     >
       <HeroTitle />
       <ConnectWithUs />
@@ -58,7 +58,7 @@ const ConnectWithUs = () => {
         type="email"
         placeholder="Enter your email..."
       ></input>
-      <button className="px-5 py-2 w-48 mt-7 sm:mt-0 bg-gradient-to-r text-base from-red-500 to-purple-600 rounded-lg">
+      <button className="px-5 py-2 w-48 mt-7 sm:mt-0 bg-gradient-to-r text-base from-red-500 to-purple-600 rounded-lg hover:scale-105 transform transition-transform duration-300 ease-in-out">
         Connect with us
       </button>
     </motion.div>

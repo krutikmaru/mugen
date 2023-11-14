@@ -7,7 +7,7 @@ const NavigationLinks = () => {
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, duration: 0.8 }}
+      transition={{ delay: 0.3, duration: 0.2 }}
       className="flex p-2 px-10 rounded-full border-[1px] border-[#16163a]"
     >
       <motion.div className="mr-10 cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
