@@ -3,12 +3,13 @@ import React from "react";
 const Hero = () => {
   return (
     <>
-      <div className="min-h-[50vh] space-y-8 flex flex-col justify-center items-center">
+      <div className="min-h-[50vh] space-y-8 flex flex-col justify-center items-center absolute top-32">
         <span className="text-white text-5xl font-bold font-lexend-deca">
-          Mugen Digital
+          We Power SMEs
         </span>
-        <span className="text-2xl bg-gradient-to-r from-red-500 to-purple-600 text-transparent bg-clip-text">
-          One Step Solution to all your Business Problems
+        <span className="text-2xl bg-gradient-to-r from-red-500 to-purple-600 text-transparent bg-clip-text align-middle">
+          Designed to dramatically scale down costs, optimize processes and
+          simplify operations.
         </span>
         <div className="text-xl flex justify-center space-x-5">
           <input

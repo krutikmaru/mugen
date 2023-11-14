@@ -1,20 +1,24 @@
 // Glow.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import Hero from "../Hero/Hero";
 
 const Glow = () => {
   return (
-    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
-      <motion.div
-        initial={{ opacity: 0, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-96 h-96 flex justify-center items-center"
-      >
-        <GlowLevel1 />
-        <GlowLevel2 />
-        <GlowLevel3 />
-      </motion.div>
-    </div>
+    <>
+      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+        <motion.div
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="w-96 h-96 flex justify-center items-center"
+        >
+          <GlowLevel1 />
+          <GlowLevel2 />
+          <GlowLevel3 />
+        </motion.div>
+      </div>
+      <Hero />
+    </>
   );
 };
 

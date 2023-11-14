@@ -1,5 +1,6 @@
 import React from "react";
 import Glow from "./Glow";
+import Hero from "../Hero/Hero";
 
 const Landing = () => {
   return (
