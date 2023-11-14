@@ -9,6 +9,10 @@ html {
   overflow-x: hidden;
 }
 
+body {
+  @apply bg-mugen-purple-dark;
+}
+
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
@@ -22,17 +26,18 @@ html {
 /* Track */
 ::-webkit-scrollbar-track,
 .menubar-scrollbar::-webkit-scrollbar-track {
-  @apply bg-[#0a0a0a];
+  @apply bg-[#0b0927];
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb,
 .menubar-scrollbar::-webkit-scrollbar-thumbr {
-  @apply bg-[#141414];
+  @apply bg-[#110f35];
+  border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover,
 .menubar-scrollbar::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#1e1e1e];
+  @apply bg-[#110f35];
 }
