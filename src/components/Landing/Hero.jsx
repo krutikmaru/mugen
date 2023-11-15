@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Work from "./Work";
 import toast from "react-hot-toast";
+import { useApplicationManager } from "../../contexts/ApplicationContext";
 
 const Hero = () => {
   return (
@@ -47,6 +48,8 @@ const HeroTitle = () => {
 };
 
 const ConnectWithUs = () => {
+  const { activatePopupCenter } = useApplicationManager();
+
   const [email, setEmail] = useState("");
   const handleConnectWithUsClick = () => {
     if (!email) {
@@ -59,13 +62,14 @@ const ConnectWithUs = () => {
       });
       return;
     }
-    toast.success("We received you Mail", {
-      style: {
-        backgroundColor: "#080821",
-        color: "#fff",
-        border: "1px solid #131334",
-      },
-    });
+    activatePopupCenter(<h1 className="text-white"></h1>);
+    // toast.success("We received you Mail", {
+    //   style: {
+    //     backgroundColor: "#080821",
+    //     color: "#fff",
+    //     border: "1px solid #131334",
+    //   },
+    // });
   };
   return (
     <motion.div
