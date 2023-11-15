@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useApplicationManager } from "../../contexts/ApplicationContext";
 import toast from "react-hot-toast";
 
-
 const MoreDetail = (props) => {
   const [email, setEmail] = useState(props.email);
   const [note, setNote] = useState("");
@@ -13,8 +12,7 @@ const MoreDetail = (props) => {
     services: selectedServices,
   });
 
-  const { fullScreenPopCenter, deactivatePopupCenter } =
-    useApplicationManager();
+  const { deactivatePopupCenter } = useApplicationManager();
 
   const services = [
     "Server",
@@ -46,7 +44,7 @@ const MoreDetail = (props) => {
       services: selectedServices,
     };
     setFormData(localFormData);
-    deactivatePopupCenter()
+    deactivatePopupCenter();
     toast.success("We received you Mail", {
       style: {
         backgroundColor: "#080821",
@@ -57,7 +55,7 @@ const MoreDetail = (props) => {
   };
 
   const test = () => {
-    console.log(formData)
+    console.log(formData);
   };
   return (
     <div className="bg-gradient-to-r from-red-500 to-purple-600 rounded-xl p-0.5 sm:h-[50vh] sm:w-[100vh] h-3/4 w-[15rem]">
