@@ -58,7 +58,7 @@ const MoreDetail = (props) => {
     console.log(formData);
   };
   return (
-    <div className="bg-gradient-to-r from-red-500 to-purple-600 rounded-xl p-0.5 sm:h-[50vh] sm:w-[100vh] h-3/4 w-[15rem]">
+    <div className="bg-gradient-to-r from-red-500 to-purple-600 rounded-xl p-0.5 sm:h-fit sm:w-fit h-3/4 w-[15rem]">
       <div className="text-white h-full w-full bg-mugen-purple-dark rounded-xl sm:p-10 p-4 flex flex-col  space-y-6">
         <div>
           <label htmlFor="email" className="p-3 text-sm  text-gray-500">
