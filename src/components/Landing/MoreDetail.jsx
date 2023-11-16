@@ -58,8 +58,14 @@ const MoreDetail = (props) => {
     console.log(formData);
   };
   return (
-    <div className="bg-gradient-to-r from-red-500 to-purple-600 rounded-xl p-0.5 sm:h-fit sm:w-fit h-3/4 w-[15rem]">
-      <div className="text-white h-full w-full bg-mugen-purple-dark rounded-xl sm:p-10 p-4 flex flex-col  space-y-6">
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="bg-gradient-to-r from-red-500 to-purple-600 rounded-lg p-[1px] min-h-[70%]  w-full mx-20 md:mx-40"
+    >
+      <div
+        className="text-white min-h-[90%]  w-full relative bg-mugen-purple-dark rounded-lg md:p-10 p-4  flex flex-col  space-y-6"
+        style={{ paddingBottom: 180 }}
+      >
         <div>
           <label htmlFor="email" className="p-3 text-sm  text-gray-500">
             Email
@@ -90,7 +96,7 @@ const MoreDetail = (props) => {
           <label className="" htmlFor="services">
             What are you looking for?
           </label>
-          <div className="flex sm:justify-between flex-col sm:flex-row sm:space-x-3 pt-1">
+          <div className="mt-2 flex md:justify-between flex-col md:flex-row md:space-x-3 pt-1">
             {services.map((service, index) => (
               <label key={index} className="flex items-center space-x-2">
                 <input
@@ -110,10 +116,10 @@ const MoreDetail = (props) => {
             ))}
           </div>
         </div>
-        <div className="flex sm:justify-between sm:flex-row flex-col flex-wrap sm:space-y-0 space-y-3">
+        <div className="flex w-[90%] absolute bottom-10 md:justify-between md:flex-row flex-col flex-wrap md:space-y-0 space-y-3">
           <button
             onClick={handleConnectWithUsClick}
-            className="px-5 py-2 sm:w-48 w-30 mt-7 sm:mt-0 bg-gradient-to-r text-base from-red-500 to-purple-600 rounded-lg hover:scale-105 transform transition-transform duration-300 ease-in-out"
+            className="px-5 py-2 md:w-48 w-30 mt-7 md:mt-0 bg-gradient-to-r text-base from-red-500 to-purple-600 rounded-lg hover:scale-105 transform transition-transform duration-300 ease-in-out"
           >
             Connect with us
           </button>
