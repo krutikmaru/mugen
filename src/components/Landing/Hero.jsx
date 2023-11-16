@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Work from "./Work";
 import toast from "react-hot-toast";
 import { useApplicationManager } from "../../contexts/ApplicationContext";
+import MoreDetail from "./MoreDetail";
 
 const Hero = () => {
   return (
@@ -62,7 +63,7 @@ const ConnectWithUs = () => {
       });
       return;
     }
-    activatePopupCenter(<h1 className="text-white">Hey</h1>);
+    activatePopupCenter(<MoreDetail email={email} />);
     // toast.success("We received you Mail", {
     //   style: {
     //     backgroundColor: "#080821",
