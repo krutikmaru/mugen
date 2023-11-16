@@ -7,7 +7,7 @@ import { useApplicationManager } from "../../contexts/ApplicationContext";
 import MoreDetail from "./MoreDetail";
 
 const Hero = () => {
-  return (
+  return ( 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -22,17 +22,28 @@ const Hero = () => {
 };
 
 const HeroTitle = () => {
+const [title,setTitle] = useState({
+  base: "We Power",
+  gradient: " SMEs"
+})
+
+const handleTitle = () =>{
+  setTitle({ ...title,
+    gradient: " Services"})
+}
+
   return (
     <>
       <motion.span
+      // onClick={  handleTitle  }
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="text-8xl font-bold font-lexend-deca"
+        className="text-8xl font-bold font-lexend-deca sticky top-[10vh]"
       >
-        We Power{" "}
+        {title.base}
         <span className="bg-gradient-to-r from-red-500 to-purple-600 text-transparent bg-clip-text">
-          SMEs
+          {title.gradient}
         </span>
       </motion.span>
       <motion.span
