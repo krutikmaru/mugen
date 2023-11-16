@@ -12,7 +12,7 @@ const Hero = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5, duration: 0.8 }}
-      className="min-h-[50vh]  space-y-7 flex flex-col justify-center items-center absolute top-32 px-10 text-center pb-32"
+      className="h-auto  space-y-7 flex flex-col justify-center items-center absolute top-32 px-10 text-center pb-32"
     >
       <HeroTitle />
       <ConnectWithUs />
@@ -74,7 +74,7 @@ const ConnectWithUs = () => {
       });
       return;
     }
-    activatePopupCenter(<MoreDetail email={email}/>);
+    activatePopupCenter(<MoreDetail email={email} />);
     // toast.success("We received you Mail", {
     //   style: {
     //     backgroundColor: "#080821",
