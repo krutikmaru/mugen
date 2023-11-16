@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         "mugen-purple-dark": "#07061e",
         "mugen-purple-navigation": "#08082126",
+        "mugen-purple-white": "#565496",
       },
       boxShadow: {
         "ball-level-1": "-40px -60px 100px #932df930",

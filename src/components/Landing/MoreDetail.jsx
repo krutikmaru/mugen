@@ -54,9 +54,6 @@ const MoreDetail = (props) => {
     });
   };
 
-  const test = () => {
-    console.log(formData);
-  };
   return (
     <div
       onClick={(e) => e.stopPropagation()}

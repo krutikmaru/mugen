@@ -1,9 +1,10 @@
 import React from "react";
+import OptionsHeader from "./OptionsHeader";
 
 const Services = () => {
   return (
-    <div className="bg-purple-900 w-full min-h-screen flex justify-center items-center">
-      Services
+    <div className=" w-full min-h-screen flex justify-center  items-start  pt-32">
+      <OptionsHeader />
     </div>
   );
 };
