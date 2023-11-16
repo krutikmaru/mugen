@@ -60,10 +60,10 @@ const MoreDetail = (props) => {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-gradient-to-r from-red-500 to-purple-600 rounded-lg p-[1px] min-h-[70%]  w-full mx-20 md:mx-40"
+      className="bg-gradient-to-r from-red-500 to-purple-600 rounded-lg p-[1px] min-h-fit  w-[50rem] mx-20 md:mx-40"
     >
       <div
-        className="text-white min-h-[90%]  w-full relative bg-mugen-purple-dark rounded-lg md:p-10 p-4  flex flex-col  space-y-6"
+        className="text-white min-h-full  w-full relative bg-mugen-purple-dark rounded-lg md:p-10 p-4  flex flex-col  space-y-6"
         style={{ paddingBottom: 180 }}
       >
         <div>
