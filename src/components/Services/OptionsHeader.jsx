@@ -1,35 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  faEnvelope,
-  faIndustry,
-  faLightbulb,
-  faStore,
-  faWarehouse,
-} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const OptionsHeader = () => {
-  const options = [
-    { id: "Option-1", icon: faIndustry, title: "Manufacturing" },
-    { id: "Option-2", icon: faStore, title: "Retail" },
-    { id: "Option-3", icon: faWarehouse, title: "Logistics" },
-    { id: "Option-5", icon: faLightbulb, title: "Services" },
-    { id: "Option-4", icon: faEnvelope, title: "General" },
-  ];
+const OptionsHeader = ({ options, onMouseEnter, onOptionClick }) => {
   return (
-    <div className="w-full flex items-center justify-start px-10 py-5 sm:justify-center space-x-5  overflow-x-scroll  scrollbar-hidden relative">
+    <div className="w-fit flex items-center justify-start px-10 py-5 sm:justify-center sm:space-x-5 space-x-0 overflow-x-scroll  scrollbar-hidden">
       {options.map((option, index) => {
         return (
-          <Option key={option.id} sequence={index + 1} icon={option.icon} />
+          <Option
+            key={option.id}
+            sequence={index + 1}
+            icon={option.icon}
+            onMouseEnter={() => onMouseEnter(index)}
+            onOptionClick={() => onOptionClick(index)}
+          />
         );
       })}
     </div>
   );
 };
 
-const Option = ({ sequence, icon }) => {
+const Option = ({ sequence, icon, onMouseEnter, onOptionClick }) => {
+  //👉 For onScreen Animation
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
@@ -53,10 +46,15 @@ const Option = ({ sequence, icon }) => {
   return (
     <motion.div
       ref={ref}
-      className=" min-w-[80px] min-h-[80px] border-[1px] border-[#16163a] text-2xl text-mugen-purple-white cursor-pointer rounded-full overflow-hidden flex justify-center items-center hover:bg-mugen-purple-white hover:text-mugen-purple-dark transition-colors duration-300 ease-in-out"
+      className=" min-w-[80px] min-h-[80px] border-[1px] border-[#16163a] text-2xl 
+      text-mugen-purple-white cursor-pointer rounded-full overflow-hidden flex justify-center 
+      items-center hover:bg-mugen-purple-white hover:text-mugen-purple-dark transition-colors 
+      duration-300 ease-in-out"
       variants={animationVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
+      onMouseEnter={onMouseEnter}
+      onClick={onOptionClick}
     >
       <FontAwesomeIcon icon={icon} />
     </motion.div>

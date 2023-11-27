@@ -1,6 +1,7 @@
 // NavigationLinks.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const NavigationLinks = () => {
   return (
@@ -10,15 +11,15 @@ const NavigationLinks = () => {
       transition={{ delay: 0.3, duration: 0.2 }}
       className="flex p-2 px-10 rounded-full border-[1px] border-[#16163a]"
     >
-      <motion.div className="mr-10 cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
-        <span>Projects</span>
+      <motion.div className=" cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
+        <Link to="/projects">Projects</Link>
       </motion.div>
-      <motion.div className="mr-10 cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
+      {/* <motion.div className="mr-10 cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
         <span>Blog</span>
       </motion.div>
       <motion.div className="cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
         <span>About</span>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 };

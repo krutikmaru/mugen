@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const NavigationScroll = () => {
   return (
@@ -32,17 +33,17 @@ const NavigationScroll = () => {
           transition={{ delay: 0.3, duration: 0.2 }}
           className="mr-10 text-purple-400"
         >
-          M
+          <Link to="/">M</Link>
         </motion.div>
-        <span className="mr-10 cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
+        <Link to="/projects" className=" cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
           Projects
-        </span>
-        <span className="mr-10 cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
+        </Link>
+        {/* <span className="mr-10 cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
           Blog
         </span>
         <span className="cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
           About
-        </span>
+        </span> */}
       </motion.div>
     </>
   );

@@ -1,5 +1,5 @@
 // Hero.jsx
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Work from "./Work";
 import toast from "react-hot-toast";
@@ -7,6 +7,7 @@ import { useApplicationManager } from "../../contexts/ApplicationContext";
 import MoreDetail from "./MoreDetail";
 
 const Hero = () => {
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -16,6 +17,7 @@ const Hero = () => {
     >
       <HeroTitle />
       <ConnectWithUs />
+   
       <Work />
     </motion.div>
   );
@@ -42,7 +44,7 @@ const HeroTitle = () => {
         className="text-8xl font-bold font-lexend-deca sticky top-[10vh]"
       >
         {title.base}
-        <span className="bg-gradient-to-r from-red-500 to-purple-600 text-transparent bg-clip-text">
+        <span className="bg-gradient-to-r from-[#FF0022] to-purple-600 text-transparent bg-clip-text">
           {title.gradient}
         </span>
       </motion.span>
@@ -63,8 +65,10 @@ const ConnectWithUs = () => {
   const { activatePopupCenter } = useApplicationManager();
 
   const [email, setEmail] = useState("");
+  const emailRef = useRef()
   const handleConnectWithUsClick = () => {
     if (!email) {
+      emailRef.current.focus()
       toast.error("Email is required", {
         style: {
           backgroundColor: "#080821",
@@ -93,13 +97,14 @@ const ConnectWithUs = () => {
       <input
         className="px-5 py-2 w-full sm:w-fit sm:mr-5 text-base font-light rounded-lg outline-none bg-[#ffffff0d] backdrop-blur-sm border-[1px] border-gray-800"
         type="email"
+        ref={emailRef}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter your email..."
       ></input>
       <button
         onClick={handleConnectWithUsClick}
-        className="px-5 py-2 w-48 mt-7 sm:mt-0 bg-gradient-to-r text-base from-red-500 to-purple-600 rounded-lg hover:scale-105 transform transition-transform duration-300 ease-in-out"
+        className="px-5 py-2 w-48 mt-7 sm:mt-0 bg-gradient-to-r text-base from-[#FF0022] to-purple-600 rounded-lg hover:scale-105 transform transition-transform duration-300 ease-in-out"
       >
         Connect with us
       </button>

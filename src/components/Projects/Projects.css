@@ -1,0 +1,13 @@
+@keyframes marquee {
+    from {
+      left: translateX(0);
+    }
+    to {
+      transform: translateX(-100%); /* Adjust the number of projects */
+    }
+  }
+  
+  .animate-marquee {
+    animation: marquee 10s linear infinite;
+  }
+  
