@@ -135,7 +135,8 @@ const Projects = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`border-2 bg-mugen-purple-dark transition-all duration-1000 ease-in-out border-blue-500  ${
+            // transition-all duration-1000 ease-in-out
+            className={`border-2 bg-mugen-purple-dark  border-blue-500  ${
               active === index
                 ? "absolute top-0 right-0 w-full h-full"
                 : "w-[30%] relative"
@@ -166,7 +167,7 @@ const ProjectMain = ({ project }) => {
   return <>{project.description} main</>;
 };
 
-const ProjectPreview = ({ project,active }) => {
+const ProjectPreview = ({ project, active }) => {
   return (
     <div
       className={`border-red-500 border-2 w-fit p-1 rounded-t-lg absolute ${
