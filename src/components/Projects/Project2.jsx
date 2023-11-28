@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import data from "../../data/servicesStore";
 
 const Project2 = () => {
   return (
@@ -13,16 +14,17 @@ const Project2 = () => {
 };
 
 const ProjectsOverview = () => {
+  const projects = data.projectStore
   return (
     <div className="w-full min-h-full grid grid-cols-1 lg:grid-cols-3 items-center">
-      <OverviewProjectCard />
-      <OverviewProjectCard />
-      <OverviewProjectCard />
+      {projects.map((project)=>(
+        <OverviewProjectCard project={project}/>
+      ))}
     </div>
   );
 };
 
-const OverviewProjectCard = () => {
+const OverviewProjectCard = ({project}) => {
   const [isClicked, setIsClicked] = useState(false);
   const [shouldAppear, setShouldAppear] = useState(false);
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ const OverviewProjectCard = () => {
       setShouldAppear(true);
       setTimeout(() => {
         // navigate("/projects/krutik");
-        navigate("/");
+        navigate(`/projects/${project.id}`);
       }, 500);
     }, 300);
   };
@@ -56,7 +58,7 @@ const OverviewProjectCard = () => {
           className="w-full h-full object-cover absolute top-0 left-0"
         />
         <h1 className="absolute z-10 text-mugen-purple-dark text-9xl font-semibold flex flex-col items-start justify-start">
-          ERP
+          {project.type}
           <span className="text-5xl ml-2">Design</span>
         </h1>
         <div className="absolute z-10 bottom-12 right-12 text-6xl text-mugen-purple-dark">

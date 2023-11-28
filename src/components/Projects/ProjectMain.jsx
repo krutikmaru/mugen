@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import data from "../../data/servicesStore.js";
 
 const ProjectMain = () => {
@@ -10,13 +10,12 @@ const ProjectMain = () => {
   console.log(project)
   if (!project) return <ProjectNotFound/>
   return (
-    //  !project?
-    // (<ProjectNotFound/>):
-    (<div className="h-[200px] w-full p-10 pt-28 flex ">
+    <div className="h-screen w-full p-10 pt-28 flex ">
       <div className="w-full h-full relative bg-gradient-to-br from-[#FF0022] to-[#9333EA]">
+        <Link to={`/projects`} className=" absolute -top-4 -right-3 border-2 rounded-full px-2 bg-black hover:bg-white hover:text-black transition-colors duration-300">x</Link>
         <div className="m-[1px] h-full">{project.name}</div>
       </div>
-    </div>)
+    </div>
   );
 };
 

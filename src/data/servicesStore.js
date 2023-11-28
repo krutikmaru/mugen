@@ -748,7 +748,7 @@ const data = {
   projectStore: [
     {
       id: 1,
-      type: "ERP Design",
+      type: "ERP",
       name: "Manufacturing Focussed ERP for Engineering Company",
       sector: ["Engineering", "Manufacturing"],
       description:
@@ -774,7 +774,7 @@ const data = {
     },
     {
       id: 2,
-      type: "CRM Design",
+      type: "CRM",
       name: "360 Lead and Sales Management solution for treatment company",
       sector: ["Helathcare", "Services"],
       description:
@@ -801,7 +801,7 @@ const data = {
     },
     {
       id: 3,
-      type: "ERP Design",
+      type: "ERP",
       name: "Manufacturing Focussed ERP for Engineering Company",
       sector: ["Engineering", "Manufacturing"],
       description:

@@ -1,47 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// // import "./Projects.css"
-
-// const Projects = () => {
-//   const [active, setActive] = useState(null);
-
-//   const handleOnClickExpand = (index) => {
-//     setActive(index);
-
-//   };
-
-//   const handleOnClickBack = () => {
-//     setActive(null)
-//   };
-
-//   const projects = ["Project 1", "Project 2", "Project 3"];
-
-//   return (
-//     <div className="w-full h-screen  p-10 pt-24">
-//       <div className="flex overflow-hidden border-2 w-full h-full">
-//         <div className={`animate-marquee marqueeGroup w-full flex justify-center space-x-16  h-full border-2 relative border-red-500`}>
-//           {projects.map((project, index) => (
-//             <div
-//               key={index}
-
-//               // Test
-//               className={`border-2  border-blue-500 w-[30%] transition-colors duration-500 ease-in-out ${active === index ? "bg-white":"bg-black"}`}
-//               onClick={()=>handleOnClickExpand(index)}
-//             >
-//               <div onClick={() => handleOnClickBack} >{project}</div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default Projects;
-
-
-
-
 import React, { useEffect, useState } from "react";
 import "animate.css";
 import {
@@ -61,10 +17,6 @@ const Projects = () => {
   const handleOnClick = (index, active, isButton) => {
     if (active == null || isButton == true)
       setActive(active === index ? null : index);
-
-    // if (active !== index){
-    //   navigate(`/projects/${projects[index].type.toLowerCase()}`);
-    // }
   };
 
 const projects = data.projectStore
