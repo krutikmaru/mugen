@@ -39,122 +39,48 @@
 
 // export default Projects;
 
+
+
+
 import React, { useEffect, useState } from "react";
 import "animate.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+import data from "../../data/servicesStore.js";
 
 const Projects = () => {
+  console.log(data)
   const [active, setActive] = useState(null);
+  const navigate = useNavigate();
 
   const handleOnClick = (index, active, isButton) => {
     if (active == null || isButton == true)
       setActive(active === index ? null : index);
+
+    // if (active !== index){
+    //   navigate(`/projects/${projects[index].type.toLowerCase()}`);
+    // }
   };
 
-  const projects = [
-    {
-      type: "ERP Design",
-      name: "Manufacturing Focussed ERP for Engineering Company",
-      sector: ["Engineering", "Manufacturing"],
-      description:
-        "Client needed an ERP that helps them manage their specialized Manufacturing workflow. Manufacturing flow included Engineered to order and Make to Stock scenarious with multi level Bill of Materials and Custom material flow and routing.",
-      integrations: [
-        "CRM",
-        "Accounts",
-        "Inventory",
-        "Task Management",
-        "Payroll Systems",
-      ],
-      clientName: "######1",
-      difficulty: "Mid",
-      timeline: 1.5,
-      stack: ["Mugen ERP", "React JS", "Azure Cloud Services", "Cloudflare"],
-      thirdPart: [
-        "Google Calendar integration for scheduling",
-        "MS Outlook integraation for EMAIL and SSO",
-        "SMS Integration for delivery management and customer notifications",
-        "Whatsapp Integration for Customer notifications and chatbot",
-        "Integration with website for Lead gathering",
-      ],
-    },
-    {
-      type: "CRM Design",
-      name: "360 Lead and Sales Management solution for treatment company",
-      sector: ["Helathcare", "Services"],
-      description:
-        "Design and deploy a CRM and Sales Management tool which connects their, instagram, whatsapp,facebook sms , email, website and retail kiosk channels to a single, centralized lead management system. Auto assignement of leads absed on nature and source helps agents respond to leads faster and more efficiently.",
-      integrations: [],
-      clientName: "######2",
-      difficulty: "Mid",
-      timeline: 2,
-      stack: [
-        "Mugen CRM",
-        "Vue JS",
-        "Linode",
-        "Cloudflare",
-        "Stripe (International Payments)",
-        "Network International(UAE Payments)",
-      ],
-      thirdPart: [
-        "Google Calendar integration for scheduling",
-        "MS Outlook integraation for EMAIL and SSO",
-        "SMS Integration for delivery management and customer notifications",
-        "website, Whatsapp, instagram and facebook Integration for Customer notifications and chatbot",
-        "Stripe and Network International Payment",
-      ],
-    },
-    {
-      type: "ERP Design",
-      name: "Manufacturing Focussed ERP for Engineering Company",
-      sector: ["Engineering", "Manufacturing"],
-      description:
-        "Client needed an ERP that helps them manage their specialized Manufacturing workflow. Manufacturing flow included Engineered to order and Make to Stock scenarious with multi level Bill of Materials and Custom material flow and routing.",
-      integrations: [
-        "CRM",
-        "Accounts",
-        "Inventory",
-        "Task Management",
-        "Payroll Systems",
-      ],
-      clientName: "######1",
-      difficulty: "Mid",
-      timeline: 1.5,
-      stack: ["Mugen ERP", "React JS", "Azure Cloud Services", "Cloudflare"],
-      thirdPart: [
-        "Google Calendar integration for scheduling",
-        "MS Outlook integraation for EMAIL and SSO",
-        "SMS Integration for delivery management and customer notifications",
-        "Whatsapp Integration for Customer notifications and chatbot",
-        "Integration with website for Lead gathering",
-      ],
-    },
-  ];
+const projects = data.projectStore
 
   return (
     <div className={`w-full h-screen flex p-10 pt-28 relative border-red-500 `}>
       <div className="flex justify-between space-x-16 h-full w-full relative border-red-500">
         {projects.map((project, index) => (
-          <div
+          <div 
             key={index}
-            className={`border-2 bg-mugen-purple-dark transition-all duration-1000 ease-in-out border-blue-500  ${
-              active === index
-                ? "absolute top-0 right-0 w-full h-full"
-                : "w-[30%] relative"
-            }${active !== index && active !== null ? "hidden" : " visible"}`}
+            className={`border-2 bg-mugen-purple-dark  border-blue-500  w-[30%] relative cursor-pointer`}
             onClick={() => handleOnClick(index, active, false)}
           >
-            {active === index ? (
-              <>
-                <button
-                  className="px-2 border-2 rounded-lg hover:bg-white bg-mugen-purple-dark hover:text-black transition-colors duration-300 ease-in-out absolute -top-4 -right-3"
-                  onClick={() => handleOnClick(index, active, true)}
-                >
-                  x
-                </button>
-                <ProjectMain project={project} />
-              </>
-            ) : (
-              <ProjectPreview project={project} active={active} />
-            )}
+              <Link to={`/projects/${project.id}`}>
+                <ProjectPreview project={project} active={active} />
+              </Link>
           </div>
         ))}
       </div>
@@ -162,23 +88,61 @@ const Projects = () => {
   );
 };
 
-const ProjectMain = ({ project }) => {
-  return <>{project.description} main</>;
-};
-
-const ProjectPreview = ({ project,active }) => {
+const ProjectPreview = ({ project, active }) => {
   return (
-    <div
-      className={`border-red-500 border-2 w-fit p-1 rounded-t-lg absolute ${
-        active !== null && "hidden"
-      } left-[50%] -translate-x-[50%] -top-8 bg-mugen-purple-dark text-slate-300`}
-    >
-      {project.type}
+    <div className="p-2 h-full w-full">
+      <div
+        className={`border-red-500 border-2 w-fit p-1 rounded-t-lg absolute left-[50%] -translate-x-[50%] -top-8 bg-mugen-purple-dark text-slate-300`}
+      >
+        {project.type}
+      </div>
+      <div className="h-full">{project.description}</div>
     </div>
   );
 };
 
 export default Projects;
+
+const RedirectDiv = ({ to, children }) => {
+  return (
+    <Link to={to} style={{ textDecoration: "none", color: "inherit" }}>
+      {children}
+    </Link>
+  );
+};
+
+
+
+
+  // ${
+  //   active === index
+  //     ? "absolute top-0 right-0 w-full h-full"
+  //     : "w-[30%] relative"
+  // }
+  // ${active !== index && active !== null ? "hidden" : " visible"}
+{
+  /* {active === index ? (
+                  <>
+                    <button
+                      className="px-2 border-2 rounded-lg hover:bg-white bg-mugen-purple-dark hover:text-black transition-colors duration-300 ease-in-out absolute -top-4 -right-3"
+                      onClick={() => handleOnClick(index, active, true)}
+                    >
+                      x
+                    </button>
+                    <Routes>
+                      <Route
+                        path={`/projects/${project.type.toLowerCase()}`}
+                        element={<ProjectMain project={project} />}
+                      />
+                    </Routes>
+                    <ProjectMain project={project} />
+                  </> */
+}
+{
+  /*  ) : (
+                   <ProjectPreview project={project} active={active} />
+                 )} */
+}
 
 // const Carousel = () => {
 //   const initalState = [

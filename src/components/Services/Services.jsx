@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import OptionsHeader from "./OptionsHeader";
 import Options from "./Options";
-import optionsStore from "../../data/servicesStore";
+import data from "../../data/servicesStore";
 
-// console.log("option store",optionsStore)
+// console.log("option store",data.optionStore)
 
 const Services = () => {
   const [activeIndex, setActiveIndex] = useState(2);
   const [onClickIndex, setOnClickIndex] = useState(null);
 
   const propsData = {
-    options: optionsStore,
+    options: data.optionsStore,
     handleMouseEnter: (index) => {
       setActiveIndex(index);
       if (index !== activeIndex) {
