@@ -23,7 +23,7 @@ const TopNavigation = () => {
   return (
     <>
       {hasScrolled ? (
-        <div className="w-full h-20 fixed top-0 left-0 z-[1000]">
+        <div className="w-full h-20 fixed top-0 left-0 z-[100000]">
           <div className="w-full h-full flex items-center justify-center px-10 relative">
             <div>
               <NavigationScroll />
@@ -31,7 +31,7 @@ const TopNavigation = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full h-20 bg-mugen-purple-navigation backdrop-blur-md fixed top-0 left-0 border-b-[1px] border-[#131334] z-[1000]">
+        <div className="w-full h-20 bg-mugen-purple-navigation backdrop-blur-md fixed top-0 left-0 border-b-[1px] border-[#131334] z-[100000]">
           <div className="w-full h-full flex items-center justify-center px-10 relative">
             <div className="absolute left-10 cursor-pointer hidden md:flex">
               <NavigationLogo />

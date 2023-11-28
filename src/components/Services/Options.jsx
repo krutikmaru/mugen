@@ -44,8 +44,10 @@ const Options = ({ option, onClickIndex, index, activeIndex }) => {
     <motion.div
       // ref={ref}
       style={sizeTransition}
-      className={`font-lexend-deca bg-[#FDFFFC] bg-gradient-to-r from-red-500 to-purple-400 h-[15rem] w-[15rem]  rounded-lg p-[1px]
-        ${localClickIndex && localHoverIndex && "w-[80vw] h-[75vh] md:scale-95 "}
+      className={`font-lexend-deca bg-[#FDFFFC] bg-gradient-to-r from-red-500 to-purple-400 h-fit w-[15rem]  rounded-lg p-[1px]
+        ${
+          localClickIndex && localHoverIndex && "w-[80vw] h-[75vh] md:scale-95 "
+        }
         ${localHoverIndex && " transform sm:scale-110 scale-100 "}
       
       `}
@@ -54,11 +56,14 @@ const Options = ({ option, onClickIndex, index, activeIndex }) => {
       // animate={inView ? "visible" : "hidden"}
     >
       <div className="bg-mugen-purple-dark rounded-lg h-full w-full flex justify-center items-center px-2">
-      {localClickIndex ? (
-        <MainContent mainContent={option.mainContent} localClickIndex={localClickIndex}/>
-      ) : (
-        <Preview option={option} localHoverIndex={localHoverIndex}/>
-      )}
+        {localClickIndex ? (
+          <MainContent
+            mainContent={option.mainContent}
+            localClickIndex={localClickIndex}
+          />
+        ) : (
+          <Preview option={option} localHoverIndex={localHoverIndex} />
+        )}
       </div>
     </motion.div>
   );

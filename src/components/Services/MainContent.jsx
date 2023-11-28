@@ -15,8 +15,8 @@ const MainContent = ({ mainContent }) => {
   return (
     <div className="w-full h-full flex p-4 space-x-5 text-slate-100">
       <motion.div
-        className="w-[40%] h-full bg-[#210c44] font-lexend-deca rounded-2xl 
-        px-8 relative flex justify-center items-center text-sm"
+        className="w-[40%] min-h-full bg-[#210c44] font-lexend-deca rounded-2xl 
+        p-8 relative flex justify-center items-start text-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
@@ -66,7 +66,9 @@ const MainContent = ({ mainContent }) => {
                       <img src={detail.icon} className="w-10 h-10" />
                     </div>
                     <div className="w-[75%]">
-                      <div className=" text-transparent bg-slate-400  from-red-500 to-purple-600 bg-clip-text text-lg">{detail.title}</div>
+                      <div className=" text-transparent bg-slate-400  from-red-500 to-purple-600 bg-clip-text text-lg">
+                        {detail.title}
+                      </div>
                       <div>{detail.description}</div>
                     </div>
                   </div>
