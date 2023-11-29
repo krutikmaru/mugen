@@ -16,7 +16,8 @@ const Project2 = () => {
 const ProjectsOverview = () => {
   const projects = data.projectStore
   return (
-    <div className="w-full min-h-full grid grid-cols-1 lg:grid-cols-3 items-center">
+    <div className="w-full min-h-full grid grid-cols-1 lg:grid-cols-3
+     items-center">
       {projects.map((project)=>(
         <OverviewProjectCard project={project}/>
       ))}
@@ -35,8 +36,8 @@ const OverviewProjectCard = ({project}) => {
       setTimeout(() => {
         // navigate("/projects/krutik");
         navigate(`/projects/${project.id}`);
-      }, 500);
-    }, 300);
+      }, 200);
+    }, 0);
   };
 
   return (
@@ -57,9 +58,9 @@ const OverviewProjectCard = ({project}) => {
           alt="background"
           className="w-full h-full object-cover absolute top-0 left-0"
         />
-        <h1 className="absolute z-10 text-mugen-purple-dark text-9xl font-semibold flex flex-col items-start justify-start">
+        <h1 className="absolute z-10 text-mugen-purple-dark text-5xl lg:text-9xl font-semibold flex flex-col items-start justify-start">
           {project.type}
-          <span className="text-5xl ml-2">Design</span>
+          <span className="text-xl lg:text-5xl ml-2">Design</span>
         </h1>
         <div className="absolute z-10 bottom-12 right-12 text-6xl text-mugen-purple-dark">
           <FontAwesomeIcon icon={faArrowCircleRight} />
