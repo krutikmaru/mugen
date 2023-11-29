@@ -11,6 +11,7 @@ import ProjectMain from "./components/Projects/ProjectMain.jsx";
 import Project2 from "./components/Projects/Project2.jsx";
 import Project from "./components/Projects/Project.jsx";
 import "./App.css";
+import Project3 from "./components/Projects/Project3.jsx";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Project2 />} />
+          <Route path="/projects" element={<Project3 />} />
           {/* <Route path="/projects/krutik" element={<Project />}  /> */}
           {/* <Route path="/projects" element={<Projects />} /> */}
           <Route path="/projects/:id" element={<ProjectMain />} />
