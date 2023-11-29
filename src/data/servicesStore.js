@@ -825,9 +825,59 @@ const data = {
         "Integration with website for Lead gathering",
       ],
     },
+    {
+      id: 4,
+      type: "ABC",
+      name: "Krutik Maru ERP for Engineering Company",
+      sector: ["Engineering", "Manufacturing"],
+      description:
+        "Client needed an ERP that helps them manage their specialized Manufacturing workflow. Manufacturing flow included Engineered to order and Make to Stock scenarious with multi level Bill of Materials and Custom material flow and routing.",
+      integrations: [
+        "CRM",
+        "Accounts",
+        "Inventory",
+        "Task Management",
+        "Payroll Systems",
+      ],
+      clientName: "######1",
+      difficulty: "Mid",
+      timeline: 1.5,
+      stack: ["Mugen ERP", "React JS", "Azure Cloud Services", "Cloudflare"],
+      thirdPart: [
+        "Google Calendar integration for scheduling",
+        "MS Outlook integraation for EMAIL and SSO",
+        "SMS Integration for delivery management and customer notifications",
+        "Whatsapp Integration for Customer notifications and chatbot",
+        "Integration with website for Lead gathering",
+      ],
+    },
+    {
+      id: 5,
+      type: "XYZ",
+      name: "Mohd. Aqib ERP for Engineering Company",
+      sector: ["Engineering", "Manufacturing"],
+      description:
+        "Client needed an ERP that helps them manage their specialized Manufacturing workflow. Manufacturing flow included Engineered to order and Make to Stock scenarious with multi level Bill of Materials and Custom material flow and routing.",
+      integrations: [
+        "CRM",
+        "Accounts",
+        "Inventory",
+        "Task Management",
+        "Payroll Systems",
+      ],
+      clientName: "######1",
+      difficulty: "Mid",
+      timeline: 1.5,
+      stack: ["Mugen ERP", "React JS", "Azure Cloud Services", "Cloudflare"],
+      thirdPart: [
+        "Google Calendar integration for scheduling",
+        "MS Outlook integraation for EMAIL and SSO",
+        "SMS Integration for delivery management and customer notifications",
+        "Whatsapp Integration for Customer notifications and chatbot",
+        "Integration with website for Lead gathering",
+      ],
+    },
   ],
-}
-
-
+};
 
 export default data;

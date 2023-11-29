@@ -63,7 +63,7 @@ const MainContent = ({ mainContent }) => {
                     className=" border-2 border-slate-700 rounded-lg flex py-2 pr-2"
                   >
                     <div className="flex justify-center items-center w-[25%] ">
-                      <img src={detail.icon} className="w-10 h-10" />
+                      <img src={detail.icon} className="w-10 h-10" alt="" />
                     </div>
                     <div className="w-[75%]">
                       <div className=" text-transparent bg-slate-400  from-red-500 to-purple-600 bg-clip-text text-lg">
