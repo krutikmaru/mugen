@@ -9,10 +9,10 @@ const Layout = ({ children }) => {
       <Toaster position="top-right" reverseOrder={false} />
       <FullScreenPopupCenter />
       <div
-        className={`scrollclass relative bg-mugen-purple-dark w-screen font-lexend-deca text-white `}
+        className={`scrollclass relative bg-mugen-purple-dark w-screen font-lexend-deca text-white`}
       >
         <TopNavigation />
-        <div className=" w-full relative flex flex-col justify-center items-start overflow-x-hidden bg-mugen-purple-dark pb-20">
+        <div className=" w-full relative flex flex-col justify-center items-start overflow-x-hidden bg-mugen-purple-dark pb-20 ">
           {children}
         </div>
       </div>
