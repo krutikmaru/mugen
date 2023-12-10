@@ -6,12 +6,11 @@ import Layout from "./components/layout/Layout";
 import Landing from "./components/Landing/Landing";
 import Services from "./components/Services/Services";
 import Footer from "./components/Footer/Footer";
-import Projects from "./components/Projects/Projects.jsx";
-import ProjectMain from "./components/Projects/ProjectMain.jsx";
-import Project2 from "./components/Projects/Project2.jsx";
 import Project from "./components/Projects/Project.jsx";
 import "./App.css";
-import Project3 from "./components/Projects/Project3.jsx";
+import Projects from "./components/Projects/Projects.jsx";
+import { useApplicationManager } from "./contexts/ApplicationContext.js";
+import ServicesMobile from "./components/mobile/Services/ServicesMobile.jsx";
 
 function App() {
   return (
@@ -19,10 +18,8 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Project3 />} />
-          {/* <Route path="/projects/krutik" element={<Project />}  /> */}
-          {/* <Route path="/projects" element={<Projects />} /> */}
-          <Route path="/projects/:id" element={<ProjectMain />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<Project />} />
         </Routes>
       </AnimatePresence>
     </Layout>
@@ -30,10 +27,11 @@ function App() {
 }
 
 const Home = () => {
+  const { isSmallScreen } = useApplicationManager();
   return (
     <>
       <Landing />
-      <Services />
+      {isSmallScreen ? <ServicesMobile /> : <Services />}
       <Footer />
     </>
   );

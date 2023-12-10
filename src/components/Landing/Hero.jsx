@@ -7,18 +7,18 @@ import { useApplicationManager } from "../../contexts/ApplicationContext";
 import MoreDetail from "./MoreDetail";
 
 const Hero = () => {
-
+  const { isSmallScreen } = useApplicationManager();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5, duration: 0.8 }}
-      className="h-auto  space-y-7 flex flex-col justify-center items-center absolute top-32 px-10 text-center pb-32"
+      className="h-auto  space-y-7 flex flex-col justify-center items-center absolute top-32 px-10 text-center pb-32 "
     >
       <HeroTitle />
       <ConnectWithUs />
-   
-      <Work />
+
+      {!isSmallScreen && <Work />}
     </motion.div>
   );
 };
@@ -65,10 +65,10 @@ const ConnectWithUs = () => {
   const { activatePopupCenter } = useApplicationManager();
 
   const [email, setEmail] = useState("");
-  const emailRef = useRef()
+  const emailRef = useRef();
   const handleConnectWithUsClick = () => {
     if (!email) {
-      emailRef.current.focus()
+      emailRef.current.focus();
       toast.error("Email is required", {
         style: {
           backgroundColor: "#080821",

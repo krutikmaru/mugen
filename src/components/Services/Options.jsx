@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import MainContent from "./MainContent";
 import Preview from "./Preview";
-import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
 const Options = ({ option, onClickIndex, index, activeIndex }) => {

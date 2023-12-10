@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useApplicationManager } from "../../contexts/ApplicationContext";
 
 const OptionsHeader = ({ options, onMouseEnter, onOptionClick }) => {
+  const { isSmallScreen } = useApplicationManager();
   return (
-    <div className="w-fit flex items-center justify-start px-10 py-5 sm:justify-center sm:space-x-5 space-x-0 overflow-x-scroll  scrollbar-hidden">
+    <div
+      className="w-full flex  items-center  px-10 py-5  space-x-5 overflow-x-scroll scrollbar-hidden  "
+      style={{ justifyContent: isSmallScreen ? "flex-start" : "center" }}
+    >
       {options.map((option, index) => {
         return (
           <Option

@@ -1,7 +1,11 @@
 import {
   faEnvelope,
+  faFileInvoice,
   faIndustry,
   faLightbulb,
+  faListCheck,
+  faMoneyCheck,
+  faServer,
   faStore,
   faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
@@ -45,7 +49,6 @@ import Marketing from "../assets/mainContentIcons/Marketing.svg";
 import payments from "../assets/mainContentIcons/payments.svg";
 import Payroll from "../assets/mainContentIcons/Payroll.svg";
 import Procurement from "../assets/mainContentIcons/Procurement.svg";
-import Reporting from "../assets/mainContentIcons/Reporting (2).svg";
 import SalesManagement from "../assets/mainContentIcons/SalesManagement.svg";
 import vendorManagement2 from "../assets/mainContentIcons/vendorManagement (2).svg";
 import vendorPortal from "../assets/mainContentIcons/vendorPortal.svg";
@@ -754,16 +757,27 @@ const data = {
       description:
         "Client needed an ERP that helps them manage their specialized Manufacturing workflow. Manufacturing flow included Engineered to order and Make to Stock scenarious with multi level Bill of Materials and Custom material flow and routing.",
       integrations: [
-        "CRM",
-        "Accounts",
-        "Inventory",
-        "Task Management",
-        "Payroll Systems",
+        { title: "CRM", icon: faServer },
+        { title: "Accounts", icon: faFileInvoice },
+        { title: "Inventory", icon: faWarehouse },
+        { title: "Task Management", icon: faListCheck },
+        { title: "Payroll Systems", icon: faMoneyCheck },
       ],
       clientName: "######1",
       difficulty: "Mid",
       timeline: 1.5,
-      stack: ["Mugen ERP", "React JS", "Azure Cloud Services", "Cloudflare"],
+      stack: [
+        { title: "Mugen ERP", image: "/assets/images/third-parties/mugen.png" },
+        { title: "React JS", image: "/assets/images/third-parties/react.png" },
+        {
+          title: "Azure Cloud Services",
+          image: "/assets/images/third-parties/azure.png",
+        },
+        {
+          title: "Cloudflare",
+          image: "/assets/images/third-parties/cloudfare.png",
+        },
+      ],
       thirdPart: [
         "Google Calendar integration for scheduling",
         "MS Outlook integraation for EMAIL and SSO",
@@ -807,11 +821,11 @@ const data = {
       description:
         "Client needed an ERP that helps them manage their specialized Manufacturing workflow. Manufacturing flow included Engineered to order and Make to Stock scenarious with multi level Bill of Materials and Custom material flow and routing.",
       integrations: [
-        "CRM",
-        "Accounts",
-        "Inventory",
-        "Task Management",
-        "Payroll Systems",
+        { title: "CRM", icon: faServer },
+        { title: "Accounts", icon: faFileInvoice },
+        { title: "Inventory", icon: faWarehouse },
+        { title: "Task Management", icon: faListCheck },
+        { title: "Payroll Systems", icon: faMoneyCheck },
       ],
       clientName: "######1",
       difficulty: "Mid",
@@ -833,11 +847,11 @@ const data = {
       description:
         "Client needed an ERP that helps them manage their specialized Manufacturing workflow. Manufacturing flow included Engineered to order and Make to Stock scenarious with multi level Bill of Materials and Custom material flow and routing.",
       integrations: [
-        "CRM",
-        "Accounts",
-        "Inventory",
-        "Task Management",
-        "Payroll Systems",
+        { title: "CRM", icon: faServer },
+        { title: "Accounts", icon: faFileInvoice },
+        { title: "Inventory", icon: faWarehouse },
+        { title: "Task Management", icon: faListCheck },
+        { title: "Payroll Systems", icon: faMoneyCheck },
       ],
       clientName: "######1",
       difficulty: "Mid",
@@ -859,11 +873,11 @@ const data = {
       description:
         "Client needed an ERP that helps them manage their specialized Manufacturing workflow. Manufacturing flow included Engineered to order and Make to Stock scenarious with multi level Bill of Materials and Custom material flow and routing.",
       integrations: [
-        "CRM",
-        "Accounts",
-        "Inventory",
-        "Task Management",
-        "Payroll Systems",
+        { title: "CRM", icon: faServer },
+        { title: "Accounts", icon: faFileInvoice },
+        { title: "Inventory", icon: faWarehouse },
+        { title: "Task Management", icon: faListCheck },
+        { title: "Payroll Systems", icon: faMoneyCheck },
       ],
       clientName: "######1",
       difficulty: "Mid",
