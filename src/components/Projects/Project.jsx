@@ -22,7 +22,7 @@ const Project = () => {
   if (!project) return <ProjectNotFound />;
 
   return (
-    <div className="h-screen w-full pt-20 flex">
+    <div className="min-h-screen w-full pt-20 flex">
       <motion.div
         initial="hidden"
         animate="visible"
