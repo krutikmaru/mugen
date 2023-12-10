@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavigationLogo = () => {
-  return <div className="text-purple-400 font-semibold  ">Mugen</div>;
+  return <Link to="/" className="text-purple-400 font-semibold  ">Mugen</Link>;
 };
 
 export default NavigationLogo;

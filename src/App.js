@@ -1,13 +1,40 @@
-import "./App.css";
-import Landing from "./components/Landing/Landing";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Layout from "./components/layout/Layout";
+// import Home from "./components/Home/Home";
+import Landing from "./components/Landing/Landing";
+import Services from "./components/Services/Services";
+import Footer from "./components/Footer/Footer";
+import Project from "./components/Projects/Project.jsx";
+import "./App.css";
+import Projects from "./components/Projects/Projects.jsx";
+import { useApplicationManager } from "./contexts/ApplicationContext.js";
+import ServicesMobile from "./components/mobile/Services/ServicesMobile.jsx";
 
 function App() {
   return (
     <Layout>
-      <Landing />
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<Project />} />
+        </Routes>
+      </AnimatePresence>
     </Layout>
   );
 }
+
+const Home = () => {
+  const { isSmallScreen } = useApplicationManager();
+  return (
+    <>
+      <Landing />
+      {isSmallScreen ? <ServicesMobile /> : <Services />}
+      <Footer />
+    </>
+  );
+};
 
 export default App;
