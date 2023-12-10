@@ -33,9 +33,12 @@ const StackThirdParty = ({ project, variants }) => {
           <div className="w-full lg:h-60 flex flex-col justify-start items-start pb-4 overflow-y-scroll overflow-x-hidden scrollbar-hidden">
             {project.thirdPart.map((thirdParty) => {
               return (
-                <span className="px-4 py-2 text-lg w-full rounded-md mr-2 mb-2 border-[2px] border-[#56549630] bg-gradient-to-br from-fuchsia-500 to-fuchsia-700">
-                  {thirdParty}
-                </span>
+                <div className="px-4 py-2 text-lg w-full flex justify-start items-center rounded-md mr-2 mb-2 border-[2px] border-[#56549630] bg-gradient-to-br from-fuchsia-600 to-fuchsia-800">
+                  <div className="min-w-[48px] max-w-[48px] relative h-12 rounded-md mr-4">
+                    <img src={thirdParty.image} alt={thirdParty.title} />
+                  </div>
+                  <span className="text-sm">{thirdParty.title}</span>
+                </div>
               );
             })}
           </div>

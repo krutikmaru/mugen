@@ -779,11 +779,27 @@ const data = {
         },
       ],
       thirdPart: [
-        "Google Calendar integration for scheduling",
-        "MS Outlook integraation for EMAIL and SSO",
-        "SMS Integration for delivery management and customer notifications",
-        "Whatsapp Integration for Customer notifications and chatbot",
-        "Integration with website for Lead gathering",
+        {
+          title: "Google Calendar integration for scheduling",
+          image: "/assets/images/integrations/google-calendar.png",
+        },
+        {
+          title: "MS Outlook integraation for EMAIL and SSO",
+          image: "/assets/images/integrations/outlook.png",
+        },
+        {
+          title:
+            "SMS Integration for delivery management and customer notifications",
+          image: "/assets/images/integrations/sms.png",
+        },
+        {
+          title: "Whatsapp Integration for Customer notifications and chatbot",
+          image: "/assets/images/integrations/whatsapp.png",
+        },
+        {
+          title: "Integration with website for Lead gathering",
+          image: "/assets/images/integrations/website.png",
+        },
       ],
     },
     {
