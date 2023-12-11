@@ -18,7 +18,7 @@ export const ApplicationManagerProvider = ({ children }) => {
     Component: null,
   });
 
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 850);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 535);
   // When Menu opened in mobile and then if we switch to desktop, then going back to mobile still shows that menu open. RESET MOBILE STATES
   useEffect(() => {
     const handleResize = () => {

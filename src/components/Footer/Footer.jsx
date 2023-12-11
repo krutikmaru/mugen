@@ -1,13 +1,13 @@
 import React from "react";
-import {
-    faEnvelope,
-    faIndustry,
-    faLightbulb,
-    faStore,
-    faWarehouse,
-    faFace
-  } from "@fortawesome/free-solid-svg-icons";
-  
+// import {
+//     faEnvelope,
+//     faIndustry,
+//     faLightbulb,
+//     faStore,
+//     faWarehouse,
+//     faFace
+//   } from "@fortawesome/free-solid-svg-icons";
+
 const Footer = () => {
   return (
     <div className="mr-10 min-w-full">
