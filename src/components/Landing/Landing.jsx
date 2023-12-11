@@ -9,7 +9,7 @@ const Landing = () => {
     <div
       className="w-full  min-h-screen bg-red-00 relative flex justify-center items-center"
       style={{
-        marginBottom: isSmallScreen ? 0 : 290,
+        marginBottom: isSmallScreen ? 120 : 290,
       }}
     >
       <Glow />
