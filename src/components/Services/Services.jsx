@@ -1,73 +1,58 @@
 import React, { useState } from "react";
-import OptionsHeader from "./OptionsHeader";
-import Options from "./Options";
 import data from "../../data/servicesStore";
-
-// console.log("option store",data.optionStore)
+import MainContent from "./MainContent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useApplicationManager } from "../../contexts/ApplicationContext";
 
 const Services = () => {
-  const [activeIndex, setActiveIndex] = useState(2);
-  const [onClickIndex, setOnClickIndex] = useState(null);
-
-  const propsData = {
-    options: data.optionsStore,
-    handleMouseEnter: (index) => {
-      setActiveIndex(index);
-      if (index !== activeIndex) {
-        setOnClickIndex(null);
-      }
-    },
-
-    //👉 Setting Active Index of the click
-    handleOptionOnClick: (index) => {
-      if (onClickIndex === index) {
-        setOnClickIndex(null);
-      } else {
-        setOnClickIndex(index);
-      }
-    },
-  };
-
-
-  //👉 Margin value to be changed on hover
-  const marginChange = [
-    "ml-[65rem]",
-    "ml-[33rem]",
-    "ml-[0rem]",
-    "-ml-[33rem]",
-    "-ml-[65rem]",
-  ];
-
-  //👉 Styling Tansition
-  const marginTransition = {
-    transition: `margin 300ms ease-in-out`,
-  };
+  const [isMainContentVisible, setIsMainContentVisible] = useState(false);
+  const [currentItem, setCurrentItem] = useState(data.optionsStore[0]);
+  const { isSmallScreen } = useApplicationManager();
 
   return (
-    <div className=" w-full min-h-fit flex flex-col items-center p-14">
-      <OptionsHeader
-        options={propsData.options}
-        onMouseEnter={propsData.handleMouseEnter}
-        onOptionClick={propsData.handleOptionOnClick}
-      />
-      <div className="w-full flex justify-center">
-        <div
-          className={`flex pt-5 w-fit h-fit space-x-5 ${marginChange[activeIndex]}`}
-          style={marginTransition}
-        >
-          {propsData.options.map((option, index) => {
-            return (
-              <Options
-                key={index}
-                option={option}
-                onClickIndex={onClickIndex}
-                activeIndex={activeIndex}
-                index={index}
-              />
-            );
-          })}
-        </div>
+    <div
+      className=" w-full min-h-screen flex flex-col items-center p-14 px-5 "
+      style={{ padding: isSmallScreen ? 0 : 56 }}
+    >
+      <div className="flex justify-start items-start w-full px-5 mb-5 relative">
+        <h1 className="text-9xl font-semibold stroked-text text-mugen-purple-white opacity-90">
+          Services
+        </h1>
+        <h1 className="text-9xl font-semibold absolute left-10 -top-3 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text">
+          Services
+        </h1>
       </div>
+      <div className="w-full min-h-full flex  items-center justify-start overflow-x-scroll pb-10 px-10 relative transition-all duration-500 ease-in-out">
+        {data.optionsStore.map((option, index) => {
+          return (
+            <>
+              <div
+                onClick={() => {
+                  setIsMainContentVisible(true);
+                  setCurrentItem(data.optionsStore[index]);
+                }}
+                key={option.id}
+                className="h-[400px] min-w-[300px] hover:scale-105 transition ease-in-out duration-300 flex justify-center items-center flex-col mt-5 mr-5 rounded-md overflow-hidden mb-5 lg:mb-0 relative p-7 cursor-pointer border-2 border-mugen-purple-white hover:bg-purple-500 group"
+              >
+                <h1 className="absolute top-10 text-3xl text-gray-400 group-hover:text-white font-semibold left-1/2 -translate-x-1/2 ">
+                  {option.title}
+                </h1>
+                {/* <img src={option.previewIcon} alt="" className=" w-60 h-60" /> */}
+                <FontAwesomeIcon
+                  icon={option.icon}
+                  className="text-7xl text-fuchsia-400 group-hover:text-fuchsia-950"
+                />
+              </div>
+            </>
+          );
+        })}
+      </div>
+      {isMainContentVisible && (
+        <MainContent
+          mainContent={currentItem.mainContent}
+          setIsMainContentVisible={setIsMainContentVisible}
+        />
+      )}
     </div>
   );
 };

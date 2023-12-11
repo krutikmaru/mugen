@@ -60,3 +60,8 @@ body {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+.stroked-text {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px;
+}

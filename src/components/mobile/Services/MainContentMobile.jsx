@@ -72,7 +72,7 @@ const MainContentMobile = ({ setIsMainContentVisible, mainContent }) => {
           </div>
 
           {/* Selection boxes ⬇️ */}
-          <div className="w-full mt-5 flex flex-wrap items-center justify-evenly">
+          <div className="w-full mt-5 grid grid-cols-2 sm:grid-cols-4 gap-4">
             {mainContent.map((object) => {
               return (
                 <div
@@ -82,7 +82,7 @@ const MainContentMobile = ({ setIsMainContentVisible, mainContent }) => {
                       parentRef.current.scrollTop = 0;
                     }
                   }}
-                  className="h-32 w-32 mb-5 p-5 bg-mugen-purple-white rounded-md overflow-hidden flex flex-col justify-center items-center cursor-pointer m-auto"
+                  className="w-full h-full mb-5 p-5 bg-[#9142ff] rounded-md overflow-hidden flex flex-col justify-center items-center cursor-pointer m-auto"
                 >
                   <div className="w-12 h-12 ">
                     <img src={object.icon} alt="" className=" w-full h-auto" />
