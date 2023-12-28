@@ -45,7 +45,7 @@ const Services = () => {
             );
           })}
         </div>
-        <div className="w-full mt-5 flex flex-col xl:flex-row items-start sxl:items-start justify-center">
+        <div className="w-full mt-5 flex flex-col xl:flex-row items-center xl:items-start justify-center">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 xl:mr-4 mb-4 xl:mb-0">
             {currentItem.mainContent.map((content) => {
               return (
