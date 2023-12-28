@@ -1,58 +1,117 @@
 import React, { useState } from "react";
 import data from "../../data/servicesStore";
-import MainContent from "./MainContent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useApplicationManager } from "../../contexts/ApplicationContext";
 
 const Services = () => {
-  const [isMainContentVisible, setIsMainContentVisible] = useState(false);
   const [currentItem, setCurrentItem] = useState(data.optionsStore[0]);
-  const { isSmallScreen } = useApplicationManager();
+  const [currentSubItem, setCurrentSubItem] = useState(
+    data.optionsStore[0].mainContent[0]
+  );
 
   return (
-    <div
-      className=" w-full min-h-screen flex flex-col items-center p-14 px-5 "
-      style={{ padding: isSmallScreen ? 0 : 56 }}
-    >
-      <div className="flex justify-start items-start w-full px-5 mb-5 relative">
-        <h1 className="text-9xl font-semibold stroked-text text-mugen-purple-white opacity-90">
-          Services
+    <div className=" w-full min-h-screen flex flex-col items-center px-16 pb-20">
+      <div className="flex flex-col justify-start items-start w-full mb-5">
+        <h1 className="text-3xl font-semibold pb-4 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text">
+          A Modern Business Management System
         </h1>
-        <h1 className="text-9xl font-semibold absolute left-10 -top-3 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text">
-          Services
-        </h1>
+        <p className="text-base text-[#b1b1b1]">
+          A modern business needs a safe, reliable, easy and fast solution to
+          better manage their processes and resources. Find out how our ERP
+          solution made with your business in mind can help your business.
+        </p>
       </div>
-      <div className="w-full min-h-full flex  items-center justify-start overflow-x-scroll pb-10 px-10 relative transition-all duration-500 ease-in-out">
-        {data.optionsStore.map((option, index) => {
-          return (
-            <>
+      <div className="w-full flex flex-col mt-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-scroll scrollbar-hidden">
+          {data.optionsStore.map((option) => {
+            if (currentItem.title === option.title) {
+              return (
+                <div className="cursor-pointer border-[1px] border-purple-500 bg-purple-500 rounded-md py-3 px-5  min-w-[160px] flex mr-4 items-center justify-center">
+                  <FontAwesomeIcon icon={option.icon} />
+                  <span className="ml-2">{option.title}</span>
+                </div>
+              );
+            }
+            return (
               <div
                 onClick={() => {
-                  setIsMainContentVisible(true);
-                  setCurrentItem(data.optionsStore[index]);
+                  setCurrentItem(option);
+                  setCurrentSubItem(option.mainContent[0]);
                 }}
-                key={option.id}
-                className="h-[400px] min-w-[300px] hover:scale-105 transition ease-in-out duration-300 flex justify-center items-center flex-col mt-5 mr-5 rounded-md overflow-hidden mb-5 lg:mb-0 relative p-7 cursor-pointer border-2 border-mugen-purple-white hover:bg-purple-500 group"
+                className="cursor-pointer border-[1px] border-purple-500 rounded-md py-3 px-5  min-w-[160px] flex mr-4 items-center justify-center"
               >
-                <h1 className="absolute top-10 text-3xl text-gray-400 group-hover:text-white font-semibold left-1/2 -translate-x-1/2 ">
-                  {option.title}
-                </h1>
-                {/* <img src={option.previewIcon} alt="" className=" w-60 h-60" /> */}
-                <FontAwesomeIcon
-                  icon={option.icon}
-                  className="text-7xl text-fuchsia-400 group-hover:text-fuchsia-950"
-                />
+                <FontAwesomeIcon icon={option.icon} />
+                <span className="ml-2">{option.title}</span>
               </div>
-            </>
-          );
-        })}
+            );
+          })}
+        </div>
+        <div className="w-full mt-5 flex flex-col xl:flex-row items-start sxl:items-start justify-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 xl:mr-4 mb-4 xl:mb-0">
+            {currentItem.mainContent.map((content) => {
+              return (
+                <div
+                  className="flex cursor-pointer flex-col border-[2px] border-[#6e37a53b] border-dashed p-2 rounded-md w-28 h-28 items-center justify-center"
+                  style={{
+                    background:
+                      content.title === currentSubItem.title
+                        ? "#a855f7"
+                        : "transparent",
+                    border:
+                      content.title === currentSubItem.title
+                        ? "2px solid #a855f7"
+                        : "2px dashed #6e37a53b",
+                  }}
+                  onClick={() => setCurrentSubItem(content)}
+                >
+                  <img
+                    className="w-5 h-5"
+                    src={content.icon}
+                    alt={content.title}
+                  />
+                  <span className="text-center text-[10px]  mt-2">
+                    {content.title}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          <div className="flex flex-col w-full xl:w-1/2 items-start justify-start  p-5 xl:px-10 border-[1px] rounded-md border-[#6e37a53b]">
+            <h1 className="text-3xl font-medium bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text mb-4">
+              {currentSubItem.title}
+            </h1>
+            <div className="flex flex-wrap">
+              <h1 className="mr-2">Works well with</h1>
+              {currentSubItem.modules.map((module) => {
+                return (
+                  <div className="px-4 py-1 text-xs rounded-full mr-2 mb-2 border-[1px] border-mugen-purple-white">
+                    {module}
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-sm text-[#b1b1b1]">{currentSubItem.overview}</p>
+            <div className="flex flex-col mt-4 mx-auto xl:mx-0">
+              {currentSubItem.details.map((detail) => {
+                return (
+                  <div className="flex items-center justify-start mb-5 pb-3 border-b-[1px] border-[#6e37a53b]">
+                    <img
+                      src={detail.icon}
+                      alt={detail.title}
+                      className="w-5 h-5 mr-5"
+                    />
+                    <div>
+                      <h1 className="text-purple-400 mb-1">{detail.title}</h1>
+                      <p className="text-xs text-[#b1b1b1]">
+                        {detail.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
-      {isMainContentVisible && (
-        <MainContent
-          mainContent={currentItem.mainContent}
-          setIsMainContentVisible={setIsMainContentVisible}
-        />
-      )}
     </div>
   );
 };

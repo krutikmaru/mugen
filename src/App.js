@@ -9,8 +9,7 @@ import Footer from "./components/Footer/Footer";
 import Project from "./components/Projects/Project.jsx";
 import "./App.css";
 import Projects from "./components/Projects/Projects.jsx";
-import { useApplicationManager } from "./contexts/ApplicationContext.js";
-import ServicesMobile from "./components/mobile/Services/ServicesMobile.jsx";
+import Integrations from "./components/Integrations/Integrations.jsx";
 
 function App() {
   return (
@@ -27,11 +26,11 @@ function App() {
 }
 
 const Home = () => {
-  const { isSmallScreen } = useApplicationManager();
   return (
     <>
       <Landing />
-      {isSmallScreen ? <ServicesMobile /> : <Services />}
+      <Services />
+      <Integrations />
       <Footer />
     </>
   );

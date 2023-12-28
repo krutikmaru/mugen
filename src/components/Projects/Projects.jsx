@@ -3,12 +3,19 @@ import {
   faArrowCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import data from "../../data/servicesStore";
+import { useApplicationManager } from "../../contexts/ApplicationContext";
 
 const Projects = () => {
+  const { parentRef } = useApplicationManager();
+  useEffect(() => {
+    if (parentRef.current) {
+      parentRef.current.scrollTop = 0;
+    }
+  }, [parentRef]);
   return (
     <div className="w-full min-h-screen flex flex-col p-10 pt-28 ">
       <ProjectsOverview />

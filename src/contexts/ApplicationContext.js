@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 const ApplicationManagerContext = createContext();
 
@@ -17,6 +23,8 @@ export const ApplicationManagerProvider = ({ children }) => {
     isActive: false,
     Component: null,
   });
+
+  const parentRef = useRef();
 
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 535);
   // When Menu opened in mobile and then if we switch to desktop, then going back to mobile still shows that menu open. RESET MOBILE STATES
@@ -41,6 +49,8 @@ export const ApplicationManagerProvider = ({ children }) => {
   };
 
   const value = {
+    parentRef,
+
     fullScreenPopCenter,
     setFullScreenPopCenter,
 
