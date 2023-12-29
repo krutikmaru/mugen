@@ -10,6 +10,7 @@ import Project from "./components/Projects/Project.jsx";
 import "./App.css";
 import Projects from "./components/Projects/Projects.jsx";
 import Integrations from "./components/Integrations/Integrations.jsx";
+import Offerings from "./components/Offerings/Offerings.jsx";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ const Home = () => {
     <>
       <Landing />
       <Services />
+      <Offerings />
       <Integrations />
       <Footer />
     </>
