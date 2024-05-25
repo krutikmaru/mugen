@@ -7,25 +7,30 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Offerings = () => {
   const offerings = [
     {
+      id: "IT-Consulting",
       title: "IT Consulting",
       icon: faPeopleArrows,
       description: "Get the best personalized IT consulting from Mugen",
     },
     {
+      id: "Business-Success-Software",
       title: "Business Success Software",
       icon: faLaptop,
       description: "Get the best personalized IT consulting from Mugen",
     },
     {
+      id: "Cloud-and-DevOps",
       title: "Cloud & Dev Ops",
       icon: faCloud,
       description: "Get the best personalized IT consulting from Mugen",
     },
     {
+      id: "AI-and-ML",
       title: "AI and ML",
       icon: faBrain,
       description: "Get the best personalized IT consulting from Mugen",
@@ -53,9 +58,12 @@ const Offerings = () => {
                 <p className="text-sm mt-2 text-[#b1b1b1]">
                   {offering.description}
                 </p>
-                <button className="w-full mt-7 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-[#131334] font-semibold rounded-md text-base py-2 px-4">
+                <Link
+                  to={`/services/${offering.id}`}
+                  className="w-full mt-7 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-[#131334] font-semibold rounded-md text-base py-3 px-4 flex justify-center items-center"
+                >
                   <FontAwesomeIcon icon={faArrowRight} />
-                </button>
+                </Link>
               </div>
             );
           })}

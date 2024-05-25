@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       "lexend-deca": ["Lexend Deca", "sans-serif", "system-ui"],
+      inter: ["Inter", "sans-serif", "system-ui"],
     },
     extend: {
       colors: {
