@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function VisualArea() {
+export default function VisualArea({ service }) {
   return (
     <motion.div
       initial={{ y: 50, opacity: 0 }}
@@ -9,8 +9,8 @@ export default function VisualArea() {
       className="w-full h-[400px] bg-[#0F0E29] lg:w-[35%] lg:h-full relative rounded-lg overflow-hidden mx-5"
     >
       <img
-        src="/assets/images/test.png"
-        alt="Test"
+        src={service.displayImage}
+        alt={service.title}
         className="absolute inset-0 w-full h-full object-cover"
       />
     </motion.div>

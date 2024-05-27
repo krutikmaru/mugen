@@ -29,15 +29,9 @@ const HeroTitle = () => {
     gradient: " SMEs",
   });
 
-  // const handleTitle = () =>{
-  //   setTitle({ ...title,
-  //     gradient: " Services"})
-  // }
-
   return (
     <>
       <motion.span
-        // onClick={  handleTitle  }
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
@@ -79,13 +73,6 @@ const ConnectWithUs = () => {
       return;
     }
     activatePopupCenter(<MoreDetail email={email} />);
-    // toast.success("We received you Mail", {
-    //   style: {
-    //     backgroundColor: "#080821",
-    //     color: "#fff",
-    //     border: "1px solid #131334",
-    //   },
-    // });
   };
   return (
     <motion.div

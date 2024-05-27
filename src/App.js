@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Layout from "./components/layout/Layout";
 // import Home from "./components/Home/Home";
@@ -12,6 +12,8 @@ import Projects from "./components/Projects/Projects.jsx";
 import Integrations from "./components/Integrations/Integrations.jsx";
 import Offerings from "./components/Offerings/Offerings.jsx";
 import Service from "./components/Offerings/Service/Service.jsx";
+import Testimonials from "./components/Landing/Testimonials/Testimonials.jsx";
+import FAQ from "./components/Landing/FAQ/FAQ.jsx";
 
 function App() {
   return (
@@ -41,10 +43,15 @@ function App() {
             </Layout>
           }
         />
-        <Route path="/services/:id" element={<Service />} />
+        <Route path="/services/:id" element={<ServiceWrapper />} />
       </Routes>
     </AnimatePresence>
   );
+}
+
+function ServiceWrapper() {
+  const { id } = useParams();
+  return <Service key={id} />;
 }
 
 const Home = () => {
@@ -53,6 +60,8 @@ const Home = () => {
       <Landing />
       <Services />
       <Offerings />
+      <Testimonials />
+      <FAQ />
       <Integrations />
       <Footer />
     </>

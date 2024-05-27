@@ -2,6 +2,7 @@ import React from "react";
 import Glow from "./Glow";
 import Hero from "./Hero";
 import { useApplicationManager } from "../../contexts/ApplicationContext";
+import Testimonials from "./Testimonials/Testimonials";
 
 const Landing = () => {
   const { isSmallScreen } = useApplicationManager();

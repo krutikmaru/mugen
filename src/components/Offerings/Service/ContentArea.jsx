@@ -9,11 +9,11 @@ import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
-export default function ContentArea() {
+export default function ContentArea({ service }) {
   return (
     <div className="w-full h-auto lg:w-[40%] lg:h-full flex flex-col justify-start items-center px-5">
       <NavigationBar />
-      <Content />
+      <Content title={service.title} slides={service.slides} />
     </div>
   );
 }
@@ -97,54 +97,68 @@ function NavigationBar() {
   );
 }
 
-function Content() {
+function Content({ title, slides }) {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlideIndex(index);
+  };
+
+  const currentSlide = slides[currentSlideIndex];
+
+  const slideVariants = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.2 } },
+    exit: { opacity: 0, y: -50, transition: { duration: 0.2 } },
+  };
+
   return (
     <div className="h-full w-full pt-8 flex flex-col-reverse lg:flex-col justify-start items-start">
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-        id="content"
-        className="h-auto lg:min-h-[400px] lg:max-h-[400px] mt-10 mb-0 lg:mb-4 lg:mt-0 flex flex-col justify-start items-start space-y-4"
-      >
+      <AnimatePresence mode="wait">
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
-          className="flex flex-col justify-start items-start space-y-4"
+          key={currentSlideIndex}
+          variants={slideVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="h-auto lg:min-h-[400px] lg:max-h-[400px] mt-10 mb-0 lg:mb-4 lg:mt-0 flex flex-col justify-start items-start space-y-4"
         >
-          <span className="text-xs font-medium text-white">
-            Business Success Software
-          </span>
-          <h1 className="text-7xl font-bold text-white tracking-tighter">
-            What is it?
-          </h1>
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+            className="flex flex-col justify-start items-start space-y-4"
+          >
+            <span className="text-xs font-medium text-white">{title}</span>
+            <h1 className="text-7xl font-bold text-white tracking-tighter">
+              {currentSlide.title}
+            </h1>
+          </motion.div>
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+            className="text-base text-[#B7B7B7]"
+          >
+            <p>{currentSlide.description}</p>
+          </motion.div>
         </motion.div>
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
-          className="text-base text-[#B7B7B7]"
-        >
-          <p>
-            Business Success Software is a comprehensive suite of integrated
-            tools designed to streamline and enhance various aspects of your
-            business operations. This software includes modules for Enterprise
-            Resource Planning (ERP), Customer Relationship Management (CRM),
-            Project Management, Financial Management, Human Resources, and
-            Inventory Management. By consolidating these critical functions into
-            a single platform, Business Success Software helps small and
-            medium-sized enterprises improve efficiency, reduce costs, and drive
-            growth.
-          </p>
-        </motion.div>
-      </motion.div>
-      <ControlBar />
+      </AnimatePresence>
+      <ControlBar
+        slides={slides}
+        currentSlideIndex={currentSlideIndex}
+        nextSlide={nextSlide}
+        goToSlide={goToSlide}
+      />
     </div>
   );
 }
 
-function ControlBar() {
+function ControlBar({ slides, currentSlideIndex, nextSlide, goToSlide }) {
   return (
     <motion.div
       initial={{ y: 50, opacity: 0 }}
@@ -152,15 +166,25 @@ function ControlBar() {
       transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
       className="w-full h-auto flex flex-col justify-start items-start space-y-4"
     >
-      <button className="flex items-center justify-between space-x-2 text-[#B7B7B7]">
-        <span className="text-2xl font-medium tracking-tighter">Benefits</span>
+      <button
+        className="flex items-center justify-between space-x-2 text-[#B7B7B7]"
+        onClick={nextSlide}
+      >
+        <span className="text-2xl font-medium tracking-tighter">
+          {slides[(currentSlideIndex + 1) % slides.length].title}
+        </span>
         <FontAwesomeIcon className="text-xl" icon={faArrowRight} />
       </button>
       <div className="flex justify-center items-center space-x-2">
-        <div className="h-2 w-5 bg-[#B352FF] border-1 border-[#8339BD] rounded-lg"></div>
-        <div className="h-2 w-5 border border-[#8339BD] rounded-lg"></div>
-        <div className="h-2 w-5 border border-[#8339BD] rounded-lg"></div>
-        <div className="h-2 w-5 border border-[#8339BD] rounded-lg"></div>
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            className={`h-2 w-5 border cursor-pointer border-[#8339BD] rounded-lg ${
+              currentSlideIndex === index ? "bg-[#B352FF] border-1" : ""
+            }`}
+            onClick={() => goToSlide(index)}
+          ></div>
+        ))}
       </div>
     </motion.div>
   );
