@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import {
 //     faEnvelope,
 //     faIndustry,
@@ -16,13 +17,27 @@ const Footer = () => {
         <div className="flex space-x-10 font-extralight pr-24">
           <div className="flex flex-col space-y-2 ">
             <span className="font-normal">Resources</span>
-            <span className="">contact us</span>
-            <span className="">about us</span>
+            <span className="text-neutral-400 font-normal transition-all duration-300 ease-in-out hover:text-[#a855f7] cursor-pointer">
+              Contact us
+            </span>
+            <span className="text-neutral-400 font-normal transition-all duration-300 ease-in-out hover:text-[#a855f7] cursor-pointer">
+              About us
+            </span>
           </div>
           <div className="flex flex-col space-y-2">
             <span className="font-normal">Legal</span>
-            <span className="">privacy policy</span>
-            <span className="">terms and condition</span>
+            <Link
+              to="/privacy-policy"
+              className="text-neutral-400 font-normal transition-all duration-300 ease-in-out hover:text-[#a855f7] cursor-pointer"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms-and-conditions"
+              className="text-neutral-400 font-normal transition-all duration-300 ease-in-out hover:text-[#a855f7] cursor-pointer"
+            >
+              Terms and Conditions
+            </Link>
           </div>
         </div>
       </div>

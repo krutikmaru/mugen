@@ -61,7 +61,7 @@ const Offerings = () => {
                 <Link
                   onClick={() => window.scrollTo(0, 0)}
                   to={`/services/${offering.id}`}
-                  className="w-full mt-7 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-[#131334] font-semibold rounded-md text-base py-3 px-4 flex justify-center items-center"
+                  className="w-full mt-7 bg-gradient-to-r from-[#fc3f3f] to-[#b82ff7]   text-[#fff] font-semibold rounded-md text-base py-3 px-4 flex justify-center items-center"
                 >
                   <FontAwesomeIcon icon={faArrowRight} />
                 </Link>

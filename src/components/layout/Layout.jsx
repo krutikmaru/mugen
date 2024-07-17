@@ -3,6 +3,7 @@ import TopNavigation from "../TopNavigation/TopNavigation";
 import { Toaster } from "react-hot-toast";
 import FullScreenPopupCenter from "../reusables/FullScreenPopupCenter";
 import { useApplicationManager } from "../../contexts/ApplicationContext";
+import Footer from "../Footer/Footer";
 
 const Layout = ({ children }) => {
   const { parentRef } = useApplicationManager();
@@ -21,6 +22,7 @@ const Layout = ({ children }) => {
         >
           {children}
         </div>
+        <Footer />
       </div>
     </>
   );

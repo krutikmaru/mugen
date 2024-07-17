@@ -1,6 +1,28 @@
 export const services = [
   {
     id: "IT-Consulting",
+    title: "IT Consulting",
+    slides: [
+      {
+        title: "What is it?",
+        description:
+          "IT Consulting services provide expert guidance and strategic planning to help businesses optimize their IT infrastructure, implement advanced technologies, and align IT strategies with business goals. Our consultants assess your current systems, identify areas for improvement, and develop customized solutions to enhance efficiency, security, and performance.",
+        nextSlide: "Benefits",
+      },
+      {
+        title: "Benefits",
+        description:
+          "Engaging with our IT Consulting services offers numerous advantages. We help you reduce costs through optimized IT processes, improve data security and compliance, and leverage cutting-edge technologies to stay competitive. Our tailored solutions ensure that your IT infrastructure supports your business objectives and adapts to future challenges.",
+        nextSlide: null,
+      },
+    ],
+    displayImage: "/assets/images/services/it-consulting/1.png",
+    getServiceActionCardTitle: "Optimize Your IT Infrastructure Today!",
+    getServiceActionCardDescription:
+      "Enhance your IT capabilities with our expert consulting services. Discover how we can help you achieve your business goals through strategic IT planning and implementation.",
+    nextServiceImage: "/assets/images/services/it-consulting/next.png",
+    nextServiceTitle: "Business Success Software",
+    nextServiceSlug: "Business-Success-Software",
   },
   {
     id: "Business-Success-Software",
@@ -50,10 +72,32 @@ export const services = [
     getServiceActionCardDescription:
       "Boost your efficiency and streamline operations with our tailored Business Success Software solutions. Discover how our ERP, CRM, and other powerful tools can help you achieve your business goals.",
     nextServiceImage: "/assets/images/services/cloud-and-devops/next.png",
-    nextServiceTitle: "Business Success Software",
-    nextServiceSlug: "Business-Success-Software",
+    nextServiceTitle: "AI & ML",
+    nextServiceSlug: "AI-and-ML",
   },
   {
     id: "AI-and-ML",
+    title: "AI & ML",
+    slides: [
+      {
+        title: "What is it?",
+        description:
+          "AI & ML services harness the power of artificial intelligence and machine learning to transform data into actionable insights and automate complex processes. Our solutions include predictive analytics, natural language processing, computer vision, and custom ML models designed to solve specific business challenges and enhance decision-making.",
+        nextSlide: "Benefits",
+      },
+      {
+        title: "Benefits",
+        description:
+          "Implementing AI & ML technologies can drive significant improvements in operational efficiency, customer experience, and innovation. Benefits include automated data analysis, enhanced accuracy in forecasting, personalized customer interactions, and the ability to uncover hidden patterns in large datasets. These advantages enable businesses to stay ahead in a competitive market.",
+        nextSlide: null,
+      },
+    ],
+    displayImage: "/assets/images/services/ai-and-ml/1.png",
+    getServiceActionCardTitle: "Unlock the Power of AI & ML Today!",
+    getServiceActionCardDescription:
+      "Leverage our AI & ML solutions to transform your business operations. Discover how our advanced technologies can help you achieve your strategic objectives and drive growth.",
+    nextServiceImage: "/assets/images/services/ai-and-ml/next.png",
+    nextServiceTitle: "IT Consulting",
+    nextServiceSlug: "IT-Consulting",
   },
 ];

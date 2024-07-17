@@ -5,7 +5,6 @@ import Layout from "./components/layout/Layout";
 // import Home from "./components/Home/Home";
 import Landing from "./components/Landing/Landing";
 import Services from "./components/Services/Services";
-import Footer from "./components/Footer/Footer";
 import Project from "./components/Projects/Project.jsx";
 import "./App.css";
 import Projects from "./components/Projects/Projects.jsx";
@@ -14,6 +13,9 @@ import Offerings from "./components/Offerings/Offerings.jsx";
 import Service from "./components/Offerings/Service/Service.jsx";
 import Testimonials from "./components/Landing/Testimonials/Testimonials.jsx";
 import FAQ from "./components/Landing/FAQ/FAQ.jsx";
+import Test from "./components/Test/Test.jsx";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy.jsx";
+import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions.jsx";
 
 function App() {
   return (
@@ -44,6 +46,30 @@ function App() {
           }
         />
         <Route path="/services/:id" element={<ServiceWrapper />} />
+        <Route
+          path="/test"
+          element={
+            <Layout>
+              <Test />
+            </Layout>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <Layout>
+              <PrivacyPolicy />
+            </Layout>
+          }
+        />
+        <Route
+          path="/terms-and-conditions"
+          element={
+            <Layout>
+              <TermsAndConditions />
+            </Layout>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -63,7 +89,6 @@ const Home = () => {
       <Testimonials />
       <FAQ />
       <Integrations />
-      <Footer />
     </>
   );
 };
