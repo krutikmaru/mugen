@@ -1,7 +1,16 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  presets: [require("@relume_io/relume-tailwind")],
   theme: {
+    screens: {
+      xs: "420px",
+      ...defaultTheme.screens,
+    },
     fontFamily: {
       "lexend-deca": ["Lexend Deca", "sans-serif", "system-ui"],
       inter: ["Inter", "sans-serif", "system-ui"],

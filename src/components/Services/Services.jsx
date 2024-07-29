@@ -9,9 +9,9 @@ const Services = () => {
   );
 
   return (
-    <div className=" w-full min-h-screen flex flex-col items-center px-16 pb-20">
-      <div className="flex flex-col justify-start items-start w-full mb-5">
-        <h1 className="text-3xl font-semibold pb-4 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text">
+    <div className=" w-full min-h-screen flex flex-col items-center px-4 md:px-16 py-20">
+      <div className="flex flex-col justify-start items-center w-full mb-5">
+        <h1 className="text-3xl font-semibold pb-10 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text">
           A Modern Business Management System
         </h1>
         <p className="text-base text-[#b1b1b1]">
@@ -21,11 +21,11 @@ const Services = () => {
         </p>
       </div>
       <div className="w-full flex flex-col mt-5">
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-scroll scrollbar-hidden">
+        <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-scroll scrollbar-hidden">
           {data.optionsStore.map((option) => {
             if (currentItem.title === option.title) {
               return (
-                <div className="cursor-pointer border-[1px] border-purple-500 bg-purple-500 rounded-md py-3 px-5  min-w-[160px] flex mr-4 items-center justify-center">
+                <div className="cursor-pointer border-[1px] border-purple-500 bg-purple-500 rounded-md py-3 px-5  min-w-[160px] flex mr-1 sm:mr-4 items-center justify-center">
                   <FontAwesomeIcon icon={option.icon} />
                   <span className="ml-2">{option.title}</span>
                 </div>
@@ -46,7 +46,7 @@ const Services = () => {
           })}
         </div>
         <div className="w-full mt-5 flex flex-col xl:flex-row items-center xl:items-start justify-center">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 xl:mr-4 mb-4 xl:mb-0">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-4 xl:mr-4 mb-4 xl:mb-0">
             {currentItem.mainContent.map((content) => {
               return (
                 <div

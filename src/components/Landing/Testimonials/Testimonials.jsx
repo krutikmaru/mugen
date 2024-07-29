@@ -4,7 +4,7 @@ import { firstRow, secondRow, thirdRow } from "../../../data/testimonials";
 
 function Testimonials() {
   return (
-    <div className="px-16 py-10 w-full">
+    <div className="px-5 sm:px-16 py-10 w-full">
       <div className="">
         <h1 className="text-3xl font-semibold pb-4 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text">
           Testimonials

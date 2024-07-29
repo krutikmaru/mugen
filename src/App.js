@@ -16,6 +16,7 @@ import FAQ from "./components/Landing/FAQ/FAQ.jsx";
 import Test from "./components/Test/Test.jsx";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy.jsx";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions.jsx";
+import Pricing from "./components/Pricing/Pricing.jsx";
 
 function App() {
   return (
@@ -87,8 +88,9 @@ const Home = () => {
       <Services />
       <Offerings />
       <Testimonials />
-      <FAQ />
       <Integrations />
+      <Pricing />
+      <FAQ />
     </>
   );
 };

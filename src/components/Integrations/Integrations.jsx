@@ -3,7 +3,7 @@ import { integrations } from "../../data/integrations";
 
 const Integrations = () => {
   return (
-    <div className=" w-full min-h-screen flex flex-col items-start px-16 pb-20">
+    <div className=" w-full  flex flex-col items-start px-5 sm:px-16 pb-20">
       <h1 className="text-3xl font-semibold pb-4 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text">
         Integrations
       </h1>
