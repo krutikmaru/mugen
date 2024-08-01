@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Layout from "./components/layout/Layout";
-// import Home from "./components/Home/Home";
 import Landing from "./components/Landing/Landing";
 import Services from "./components/Services/Services";
 import Project from "./components/Projects/Project.jsx";
@@ -11,12 +10,11 @@ import Projects from "./components/Projects/Projects.jsx";
 import Integrations from "./components/Integrations/Integrations.jsx";
 import Offerings from "./components/Offerings/Offerings.jsx";
 import Service from "./components/Offerings/Service/Service.jsx";
-import Testimonials from "./components/Landing/Testimonials/Testimonials.jsx";
 import FAQ from "./components/Landing/FAQ/FAQ.jsx";
 import Test from "./components/Test/Test.jsx";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy.jsx";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions.jsx";
-import Pricing from "./components/Pricing/Pricing.jsx";
+import Contact from "./components/Contact/Contact.jsx";
 
 function App() {
   return (
@@ -56,6 +54,14 @@ function App() {
           }
         />
         <Route
+          path="/contact"
+          element={
+            <Layout>
+              <Contact />
+            </Layout>
+          }
+        />
+        <Route
           path="/privacy-policy"
           element={
             <Layout>
@@ -87,9 +93,9 @@ const Home = () => {
       <Landing />
       <Services />
       <Offerings />
-      <Testimonials />
       <Integrations />
-      <Pricing />
+      {/* <Testimonials /> */}
+      {/* <Pricing /> */}
       <FAQ />
     </>
   );

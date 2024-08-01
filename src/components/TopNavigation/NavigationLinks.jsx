@@ -11,7 +11,7 @@ const NavigationLinks = () => {
       transition={{ delay: 0.3, duration: 0.2 }}
       className="flex p-2 px-10 rounded-full border-[1px] border-[#16163a]"
     >
-      <motion.div className=" cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">
+      <motion.div className=" cursor-pointer hover:text-purple-400 text-black dark:text-white transition-all duration-300 ease-in-out">
         <Link to="/projects">Projects</Link>
       </motion.div>
       {/* <motion.div className="mr-10 cursor-pointer hover:text-purple-400 transition-all duration-300 ease-in-out">

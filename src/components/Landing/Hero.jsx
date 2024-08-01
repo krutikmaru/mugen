@@ -13,7 +13,7 @@ const Hero = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5, duration: 0.8 }}
-      className="h-auto  space-y-7 flex flex-col justify-center items-center absolute top-32 px-10 text-center pb-32 "
+      className="h-auto  space-y-7 flex flex-col justify-center items-center relative lg:absolute lg:top-32 px-10 text-center pb-0 lg:pb-32 "
     >
       <HeroTitle />
       <ConnectWithUs />
@@ -35,7 +35,7 @@ const HeroTitle = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="text-8xl font-bold font-lexend-deca sticky top-[10vh]"
+        className="text-8xl font-bold font-lexend-deca sticky top-[10vh] text-black dark:text-white"
       >
         {title.base}
         <span className="bg-gradient-to-r from-[#FF0022] to-purple-600 text-transparent bg-clip-text">
@@ -46,7 +46,7 @@ const HeroTitle = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="text-xl text-gray-400 font-light align-middle"
+        className="text-xl text-gray-600 dark:text-gray-400 font-light align-middle"
       >
         Designed to dramatically scale down costs, optimize processes, and
         simplify operations.
@@ -82,7 +82,7 @@ const ConnectWithUs = () => {
       className="text-xl w-full flex sm:flex-row flex-col items-center justify-center"
     >
       <input
-        className="px-5 py-2 w-full sm:w-fit sm:mr-5 text-base font-light rounded-lg outline-none bg-[#ffffff0d] backdrop-blur-sm border-[1px] border-gray-800"
+        className="px-5 py-2 w-full sm:w-fit sm:mr-5 text-base font-light rounded-lg outline-none bg-[#ffffff0d] backdrop-blur-sm border-[1px] border-gray-800 text-black dark:text-white"
         type="email"
         ref={emailRef}
         value={email}

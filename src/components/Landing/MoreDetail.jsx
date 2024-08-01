@@ -59,10 +59,10 @@ const MoreDetail = (props) => {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-[#16153b] rounded-lg p-[1px] min-h-fit  w-[50rem] mx-4 md:mx-40"
+      className="bg-[#ddd] dark:bg-[#16153b] rounded-lg p-[1px] min-h-fit  w-[50rem] mx-4 md:mx-40"
     >
       <div
-        className="text-white min-h-full  w-full relative bg-mugen-purple-dark rounded-lg md:p-10 p-4  flex flex-col  space-y-6"
+        className="text-white min-h-full  w-full relative bg-white darK:bg-mugen-purple-dark rounded-lg md:p-10 p-4  flex flex-col  space-y-6"
         style={{ paddingBottom: 180 }}
       >
         <div>
@@ -70,7 +70,7 @@ const MoreDetail = (props) => {
             Email
           </label>
           <input
-            className="mt-1 px-5 py-2 w-full text-base font-light rounded-md outline-none bg-[#ffffff0d] backdrop-blur-sm border-[1px] border-gray-800"
+            className="mt-1 px-5 py-2 w-full text-base font-light rounded-md font-medium outline-none text-black dark:text-white bg-[#ffffff0d] backdrop-blur-sm border-[1px] border-gray-800"
             type="email"
             id="email"
             value={email}
@@ -83,7 +83,7 @@ const MoreDetail = (props) => {
             Note
           </label>
           <textarea
-            className="mt-1 px-5 py-2 w-full min-h-28 max-h-32 text-base font-light rounded-md outline-none bg-[#ffffff0d] backdrop-blur-sm border-[1px] border-gray-800"
+            className="mt-1 px-5 py-2 w-full font-medium text-black dark:text-white min-h-28 max-h-32 text-base font-light rounded-md outline-none bg-[#ffffff0d] backdrop-blur-sm border-[1px] border-gray-800"
             type="text"
             id="note"
             value={note}

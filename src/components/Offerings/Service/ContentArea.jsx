@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import ThemeSwitcher from "../../TopNavigation/ThemeSwitcher";
 
 export default function ContentArea({ service }) {
   return (
@@ -75,18 +76,21 @@ function NavigationBar() {
               animate={isMenuActive ? "visible" : "hidden"}
               variants={menuVariants}
               exit="exit"
-              className="rounded-md bg-[#0F0E29] absolute z-50 right-0 top-8"
+              className="rounded-md bg-[#efefef] dark:bg-[#0F0E29] border-[1px] border-[#c8c8c8] dark:border-[#15143b] absolute z-50 right-0 top-8"
             >
-              <ul className="font-normal flex flex-col justify-center items-center text-[#B7B7B7] cursor-default">
-                <li className="px-6 py-3 border-b-[1px] border-[#15143b] w-full cursor-default">
+              <ul className="font-normal flex flex-col justify-center items-center text-black dark:text-[#B7B7B7] cursor-default">
+                <li className="px-6 py-3 border-b-[1px] border-[#c8c8c8] dark:border-[#15143b] w-full cursor-default">
                   <Link to="/" className="hover:text-[#C985FF]">
                     Home
                   </Link>
                 </li>
-                <li className="px-6 py-3 w-full cursor-default">
+                <li className="px-6 py-3 w-full cursor-default border-b-[1px] border-[#c8c8c8] dark:border-[#15143b]">
                   <Link to="/projects" className="hover:text-[#C985FF]">
                     Projects
                   </Link>
+                </li>
+                <li className="px-6 pt-3 pb-2 w-full cursor-default">
+                  <ThemeSwitcher />
                 </li>
               </ul>
             </motion.div>
@@ -133,8 +137,10 @@ function Content({ title, slides }) {
             transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
             className="flex flex-col justify-start items-start space-y-4"
           >
-            <span className="text-xs font-medium text-white">{title}</span>
-            <h1 className="text-7xl font-bold text-white tracking-tighter">
+            <span className="text-xs font-medium text-black dark:text-white">
+              {title}
+            </span>
+            <h1 className="text-7xl font-bold text-black dark:text-white tracking-tighter">
               {currentSlide.title}
             </h1>
           </motion.div>
@@ -142,7 +148,7 @@ function Content({ title, slides }) {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
-            className="text-base text-[#B7B7B7]"
+            className="text-base text-neutral-600 dark:text-[#B7B7B7]"
           >
             <p>{currentSlide.description}</p>
           </motion.div>
@@ -167,7 +173,7 @@ function ControlBar({ slides, currentSlideIndex, nextSlide, goToSlide }) {
       className="w-full h-auto flex flex-col justify-start items-start space-y-4"
     >
       <button
-        className="flex items-center justify-between space-x-2 text-[#B7B7B7]"
+        className="flex items-center justify-between space-x-2 text-neutral-600 dark:text-[#B7B7B7]"
         onClick={nextSlide}
       >
         <span className="text-2xl font-medium tracking-tighter">

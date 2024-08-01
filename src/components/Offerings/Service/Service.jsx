@@ -11,7 +11,7 @@ export default function Service() {
 
   return (
     <motion.div
-      className="p-10 font-inter text-white w-screen min-h-screen lg:h-screen flex flex-col lg:flex-row justify-start lg:justify-center items-center space-y-10 lg:space-y-0 space-x-0 lg:space-x-2"
+      className="p-10 font-inter bg-white dark:bg-mugen-purple-dark w-screen min-h-screen lg:h-screen flex flex-col lg:flex-row justify-start lg:justify-center items-center space-y-10 lg:space-y-0 space-x-0 lg:space-x-2"
       id="content"
     >
       <ContentArea service={service} />

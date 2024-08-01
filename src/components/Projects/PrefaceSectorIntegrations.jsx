@@ -61,3 +61,48 @@ const PrefaceSectorIntegrations = ({ variants, project }) => {
 };
 
 export default PrefaceSectorIntegrations;
+
+export const SectorIntegrations = ({ variants, project }) => {
+  return (
+    <motion.div
+      variants={variants}
+      transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+      className="w-full h-auto bg-[#fff] dark:bg-mugen-purple-navigation backdrop-blur-md border-2 border-[#c8c8c8] dark:border-[#131334] rounded-md overflow-hidden p-4"
+    >
+      <div>
+        <div>
+          <h1 className="ml-2 mb-2 text-xl text-black dark:text-white">
+            Sector
+          </h1>
+          {project.sector.map((s) => {
+            return (
+              <span className="px-4 py-1 text-xs rounded-full mr-2 mb-2 border-[1px] text-black dark:text-white border-mugen-purple-white">
+                {s}
+              </span>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <h1 className="ml-2 mb-3 mt-6 text-xl text-black dark:text-white">
+          Integrations
+        </h1>
+        <div className="w-full flex justify-start items-center overflow-x-scroll pb-4">
+          {project.integrations.map((integration) => {
+            return (
+              <div className="h-32 min-w-[128px] mr-5 p-5 bg-[#343467] rounded-md overflow-hidden flex flex-col justify-center items-center text-center">
+                <FontAwesomeIcon
+                  icon={integration.icon}
+                  className="text-4xl mb-2 text-fuchsia-400"
+                />
+                <span className="text-gray-200 text-sm">
+                  {integration.title}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </motion.div>
+  );
+};

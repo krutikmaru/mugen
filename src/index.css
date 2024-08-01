@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply bg-mugen-purple-dark;
+  @apply bg-white dark:bg-mugen-purple-dark;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
@@ -27,20 +27,20 @@ body {
 /* Track */
 ::-webkit-scrollbar-track,
 .menubar-scrollbar::-webkit-scrollbar-track {
-  @apply bg-[#0b0927];
+  @apply bg-[#efefef] dark:bg-[#0b0927];
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb,
 .menubar-scrollbar::-webkit-scrollbar-thumbr {
-  @apply bg-[#110f35];
+  @apply bg-[#c0c0c0] dark:bg-[#110f35];
   border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover,
 .menubar-scrollbar::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#110f35];
+  @apply bg-[#a3a3a3] dark:bg-[#110f35];
 }
 
 .flip-card {

@@ -9,12 +9,12 @@ const Services = () => {
   );
 
   return (
-    <div className=" w-full min-h-screen flex flex-col items-center px-4 md:px-16 py-20">
+    <div className=" w-full min-h-screen flex flex-col items-center px-4 md:px-16 py-0 pb-20 lg:py-20">
       <div className="flex flex-col justify-start items-center w-full mb-5">
         <h1 className="text-3xl font-semibold pb-10 bg-gradient-to-r from-[#ff6868] to-[#cf68ff] text-transparent bg-clip-text">
           A Modern Business Management System
         </h1>
-        <p className="text-base text-[#b1b1b1]">
+        <p className="text-base text-center text-neutral-600 dark:text-[#b1b1b1]">
           A modern business needs a safe, reliable, easy and fast solution to
           better manage their processes and resources. Find out how our ERP
           solution made with your business in mind can help your business.
@@ -37,7 +37,7 @@ const Services = () => {
                   setCurrentItem(option);
                   setCurrentSubItem(option.mainContent[0]);
                 }}
-                className="cursor-pointer border-[1px] border-purple-500 rounded-md py-3 px-5  min-w-[160px] flex mr-4 items-center justify-center"
+                className="cursor-pointer border-[1px] text-black dark:text-white border-purple-500 rounded-md py-3 px-5  min-w-[160px] flex mr-4 items-center justify-center"
               >
                 <FontAwesomeIcon icon={option.icon} />
                 <span className="ml-2">{option.title}</span>
@@ -46,7 +46,7 @@ const Services = () => {
           })}
         </div>
         <div className="w-full mt-5 flex flex-col xl:flex-row items-center xl:items-start justify-center">
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-4 xl:mr-4 mb-4 xl:mb-0">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-4 xl:mr-4 mb-4 xl:mb-0 ">
             {currentItem.mainContent.map((content) => {
               return (
                 <div
@@ -55,11 +55,11 @@ const Services = () => {
                     background:
                       content.title === currentSubItem.title
                         ? "#a855f7"
-                        : "transparent",
+                        : "#cd99ff",
                     border:
                       content.title === currentSubItem.title
-                        ? "2px solid #a855f7"
-                        : "2px dashed #6e37a53b",
+                        ? "3px solid #9e37ff"
+                        : "0",
                   }}
                   onClick={() => setCurrentSubItem(content)}
                 >
@@ -80,16 +80,20 @@ const Services = () => {
               {currentSubItem.title}
             </h1>
             <div className="flex flex-wrap">
-              <h1 className="mr-2">Works well with</h1>
+              <h1 className="mr-2 text-black dark:text-white">
+                Works well with
+              </h1>
               {currentSubItem.modules.map((module) => {
                 return (
-                  <div className="px-4 py-1 text-xs rounded-full mr-2 mb-2 border-[1px] border-mugen-purple-white">
+                  <div className="px-4 text-black dark:text-white py-1 text-xs rounded-full mr-2 mb-2 border-[1px] border-mugen-purple-white">
                     {module}
                   </div>
                 );
               })}
             </div>
-            <p className="text-sm text-[#b1b1b1]">{currentSubItem.overview}</p>
+            <p className="text-sm text-neutral-600 dark:text-[#b1b1b1]">
+              {currentSubItem.overview}
+            </p>
             <div className="flex flex-col mt-4 mx-auto xl:mx-0">
               {currentSubItem.details.map((detail) => {
                 return (
@@ -101,7 +105,7 @@ const Services = () => {
                     />
                     <div>
                       <h1 className="text-purple-400 mb-1">{detail.title}</h1>
-                      <p className="text-xs text-[#b1b1b1]">
+                      <p className="text-xs text-neutral-600 dark:text-[#b1b1b1]">
                         {detail.description}
                       </p>
                     </div>

@@ -45,17 +45,17 @@ const Offerings = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mx-auto">
           {offerings.map((offering) => {
             return (
-              <div className="w-full sm:w-[400px] lg:w-[320px] min-h-[280px] p-5 px-7 bg-[#131334] border-2 border-[#1f1f49] rounded-md flex flex-col">
-                <div className="w-20 h-20 bg-[#1f1f49] rounded-full flex justify-center items-center">
+              <div className="w-full sm:w-[400px] lg:w-[320px] min-h-[280px] p-5 px-7 bg-[#efefef] dark:bg-[#131334] border-2 border-[#c8c8c8] dark:border-[#1f1f49] rounded-md flex flex-col">
+                <div className="w-20 h-20 bg-white dark:bg-[#1f1f49] rounded-full flex justify-center items-center">
                   <FontAwesomeIcon
                     icon={offering.icon}
-                    className="text-2xl text-[#6a6ad3]"
+                    className="text-2xl text-[#a855f7] dark:text-[#6a6ad3]"
                   />
                 </div>
-                <h1 className="mt-4 text-xl text-[#b4b4ff]">
+                <h1 className="mt-4 text-xl text-[#a855f7] dark:text-[#b4b4ff]">
                   {offering.title}
                 </h1>
-                <p className="text-sm mt-2 text-[#b1b1b1]">
+                <p className="text-sm mt-2 text-neutral-600 dark:text-[#b1b1b1]">
                   {offering.description}
                 </p>
                 <Link

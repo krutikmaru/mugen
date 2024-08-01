@@ -1,6 +1,7 @@
 import {
-  faArrowCircleLeft,
   faArrowCircleRight,
+  faClock,
+  faIndustry,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
@@ -17,40 +18,27 @@ const Projects = () => {
     }
   }, [parentRef]);
   return (
-    <div className="w-full min-h-screen flex flex-col p-10 pt-28 ">
+    <div className="w-full min-h-screen flex flex-col p-4 md:p-10 mt-24 ">
       <ProjectsOverview />
     </div>
   );
 };
 
 const ProjectsOverview = () => {
-  const [focusedIndex, setFocusedIndex] = useState(0);
   const projects = data.projectStore;
 
   return (
     <>
-      <DotSelector
-        projects={projects}
-        focusedIndex={focusedIndex}
-        setFocusedIndex={setFocusedIndex}
-      />
-      <div
-        className="w-full min-h-full flex items-center justify-start  overflow-visible relative transition-all duration-500 ease-in-out"
-        style={{ left: -320 * focusedIndex }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-center pb-4 relative transition-all duration-500 ease-in-out">
         {projects.map((project, index) => (
-          <OverviewProjectCard
-            project={project}
-            index={index}
-            focusedIndex={focusedIndex}
-          />
+          <OverviewProjectCard project={project} index={index} />
         ))}
       </div>
     </>
   );
 };
 
-const OverviewProjectCard = ({ project, index, focusedIndex }) => {
+const OverviewProjectCard = ({ project, index }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [shouldAppear, setShouldAppear] = useState(false);
   const navigate = useNavigate();
@@ -68,18 +56,11 @@ const OverviewProjectCard = ({ project, index, focusedIndex }) => {
   return (
     <>
       <motion.div
-        className="h-[400px] min-w-[300px]  mr-5 rounded-md overflow-hidden mb-5 lg:mb-0 relative p-7 cursor-pointer "
-        style={{
-          // height: focusedIndex === index ? 420 : 400,
-          // minWidth: focusedIndex === index ? 320 : 300,
-          border:
-            focusedIndex === index ? `4px solid #565496` : `4px solid #07061e`,
-        }}
+        className="h-[500px] min-w-full md:min-w-[300px] flex flex-col rounded-md overflow-hidden lg:mb-0 relative p-7 cursor-pointer "
         animate={{
           scale: isClicked ? 100 : 1,
           zIndex: isClicked ? 10 : 1,
           rotate: isClicked ? "-30deg" : "0deg",
-          // opacity: shouldDisappear ? 0 : 1,
         }}
         transition={{ duration: 3.5 }}
         onClick={handleCardClick}
@@ -89,11 +70,35 @@ const OverviewProjectCard = ({ project, index, focusedIndex }) => {
           alt="background"
           className="w-full h-full object-cover absolute top-0 left-0"
         />
-        <h1 className="absolute z-10 text-mugen-purple-dark text-8xl font-semibold flex flex-col items-start justify-start">
-          {project.type}
-          <span className="text-5xl ml-2">Design</span>
-        </h1>
-        <div className="absolute z-10 bottom-12 right-12 text-5xl text-mugen-purple-dark">
+        <div className="relative z-10 h-full ">
+          <div>
+            <FontAwesomeIcon
+              className="text-mugen-purple-dark text-6xl"
+              icon={project.icon}
+            />
+            <h1 className="text-mugen-purple-dark text-8xl mb-2 font-semibold flex flex-col items-start justify-start">
+              {project.title}
+            </h1>
+            <p className="text-mugen-purple-dark mb-4">{project.overview}</p>
+          </div>
+          <div className="w-full text-mugen-purple-dark">
+            <div className="w-full flex items-center justify-between">
+              <div className="flex space-x-2 items-center">
+                <FontAwesomeIcon icon={faIndustry} />
+                <span>Industry</span>
+              </div>
+              <p className="font-semibold">{project.industry}</p>
+            </div>
+            <div className="w-full flex items-center justify-between">
+              <div className="flex space-x-2 items-center">
+                <FontAwesomeIcon icon={faClock} />
+                <span>Duration</span>
+              </div>
+              <p className="font-semibold">{project.duration}</p>
+            </div>
+          </div>
+        </div>
+        <div className="relative z-10 text-right text-5xl text-mugen-purple-dark">
           <FontAwesomeIcon icon={faArrowCircleRight} />
         </div>
       </motion.div>
@@ -106,60 +111,6 @@ const OverviewProjectCard = ({ project, index, focusedIndex }) => {
         className="fixed top-0 left-0 w-full h-screen bg-mugen-purple-dark z-[1000]"
       ></motion.div>
     </>
-  );
-};
-
-const DotSelector = ({ projects, focusedIndex, setFocusedIndex }) => {
-  const moveRight = () => {
-    if (focusedIndex === projects.length - 1) {
-      setFocusedIndex(0);
-    } else {
-      setFocusedIndex(focusedIndex + 1);
-    }
-  };
-
-  const moveLeft = () => {
-    if (focusedIndex === 0) {
-      setFocusedIndex(projects.length - 1);
-    } else {
-      setFocusedIndex(focusedIndex - 1);
-    }
-  };
-  return (
-    <div className="h-10 w-full mb-5  flex justify-between items-center">
-      <FontAwesomeIcon
-        className="text-xl text-mugen-purple-white cursor-pointer"
-        icon={faArrowCircleLeft}
-        onClick={moveLeft}
-      />
-      <div className="flex-grow  mx-4 flex justify-center items-center">
-        {projects.map((project, index) => {
-          return (
-            <Dot
-              index={index}
-              key={index}
-              focusedIndex={focusedIndex}
-              setFocusedIndex={setFocusedIndex}
-            />
-          );
-        })}
-      </div>
-      <FontAwesomeIcon
-        className="text-xl text-mugen-purple-white cursor-pointer"
-        icon={faArrowCircleRight}
-        onClick={moveRight}
-      />
-    </div>
-  );
-};
-
-const Dot = ({ index, focusedIndex, setFocusedIndex }) => {
-  return (
-    <div
-      className="h-4 w-4 mr-5 cursor-pointer border-2 border-mugen-purple-white rounded-full transition-all duration-200 ease-in-out"
-      style={{ background: index === focusedIndex ? "#565496" : "transparent" }}
-      onClick={() => setFocusedIndex(index)}
-    ></div>
   );
 };
 
